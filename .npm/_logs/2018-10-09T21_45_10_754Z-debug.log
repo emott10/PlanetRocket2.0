@@ -1,0 +1,609 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', 'sequelize' ]
+2 info using npm@6.4.1
+3 info using node@v8.12.0
+4 verbose npm-session 876954db4828d83a
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 http fetch GET 200 https://registry.npmjs.org/sequelize 135ms
+8 silly pacote range manifest for sequelize@^4.39.0 fetched in 156ms
+9 timing stage:loadCurrentTree Completed in 798ms
+10 silly install loadIdealTree
+11 silly install cloneCurrentTreeToIdealTree
+12 timing stage:loadIdealTree:cloneCurrentTree Completed in 3ms
+13 silly install loadShrinkwrap
+14 timing stage:loadIdealTree:loadShrinkwrap Completed in 209ms
+15 silly install loadAllDepsIntoIdealTree
+16 silly resolveWithNewModule sequelize@4.39.0 checking installable status
+17 silly removeObsoleteDep removing sequelize@4.39.0 from the tree as its been replaced by a newer version or is no longer required
+18 silly removeObsoleteDep removing cls-bluebird@2.1.0 from the tree as its been replaced by a newer version or is no longer required
+19 silly removeObsoleteDep removing is-bluebird@1.0.2 from the tree as its been replaced by a newer version or is no longer required
+20 silly removeObsoleteDep removing shimmer@1.2.0 from the tree as its been replaced by a newer version or is no longer required
+21 silly removeObsoleteDep removing debug@3.2.5 from the tree as its been replaced by a newer version or is no longer required
+22 silly removeObsoleteDep removing ms@2.1.1 from the tree as its been replaced by a newer version or is no longer required
+23 silly removeObsoleteDep removing dottie@2.0.0 from the tree as its been replaced by a newer version or is no longer required
+24 silly removeObsoleteDep removing generic-pool@3.4.2 from the tree as its been replaced by a newer version or is no longer required
+25 silly removeObsoleteDep removing inflection@1.12.0 from the tree as its been replaced by a newer version or is no longer required
+26 silly removeObsoleteDep removing lodash@4.17.11 from the tree as its been replaced by a newer version or is no longer required
+27 silly removeObsoleteDep removing moment-timezone@0.5.21 from the tree as its been replaced by a newer version or is no longer required
+28 silly removeObsoleteDep removing moment@2.22.2 from the tree as its been replaced by a newer version or is no longer required
+29 silly removeObsoleteDep removing retry-as-promised@2.3.2 from the tree as its been replaced by a newer version or is no longer required
+30 silly removeObsoleteDep removing bluebird@3.5.2 from the tree as its been replaced by a newer version or is no longer required
+31 silly removeObsoleteDep removing semver@5.5.1 from the tree as its been replaced by a newer version or is no longer required
+32 silly removeObsoleteDep removing terraformer-wkt-parser@1.2.0 from the tree as its been replaced by a newer version or is no longer required
+33 silly removeObsoleteDep removing @types/geojson@1.0.6 from the tree as its been replaced by a newer version or is no longer required
+34 silly removeObsoleteDep removing terraformer@1.0.9 from the tree as its been replaced by a newer version or is no longer required
+35 silly removeObsoleteDep removing toposort-class@1.0.1 from the tree as its been replaced by a newer version or is no longer required
+36 silly removeObsoleteDep removing uuid@3.3.2 from the tree as its been replaced by a newer version or is no longer required
+37 silly removeObsoleteDep removing validator@10.8.0 from the tree as its been replaced by a newer version or is no longer required
+38 silly removeObsoleteDep removing wkx@0.4.5 from the tree as its been replaced by a newer version or is no longer required
+39 silly removeObsoleteDep removing @types/node@10.11.6 from the tree as its been replaced by a newer version or is no longer required
+40 http fetch GET 200 https://registry.npmjs.org/cls-bluebird 46ms
+41 silly pacote range manifest for cls-bluebird@^2.1.0 fetched in 49ms
+42 silly resolveWithNewModule cls-bluebird@2.1.0 checking installable status
+43 http fetch GET 200 https://registry.npmjs.org/moment 101ms
+44 http fetch GET 200 https://registry.npmjs.org/retry-as-promised 102ms
+45 http fetch GET 200 https://registry.npmjs.org/moment-timezone 111ms
+46 http fetch GET 200 https://registry.npmjs.org/inflection 113ms
+47 http fetch GET 200 https://registry.npmjs.org/dottie 116ms
+48 http fetch GET 200 https://registry.npmjs.org/debug 123ms
+49 silly pacote range manifest for moment@^2.20.0 fetched in 129ms
+50 silly resolveWithNewModule moment@2.22.2 checking installable status
+51 silly pacote range manifest for retry-as-promised@^2.3.2 fetched in 129ms
+52 silly resolveWithNewModule retry-as-promised@2.3.2 checking installable status
+53 http fetch GET 304 https://registry.npmjs.org/lodash 134ms (from cache)
+54 http fetch GET 304 https://registry.npmjs.org/semver 87ms (from cache)
+55 silly pacote range manifest for moment-timezone@^0.5.14 fetched in 134ms
+56 silly resolveWithNewModule moment-timezone@0.5.21 checking installable status
+57 silly pacote version manifest for inflection@1.12.0 fetched in 137ms
+58 silly resolveWithNewModule inflection@1.12.0 checking installable status
+59 silly pacote range manifest for dottie@^2.0.0 fetched in 140ms
+60 silly resolveWithNewModule dottie@2.0.0 checking installable status
+61 http fetch GET 304 https://registry.npmjs.org/bluebird 145ms (from cache)
+62 silly pacote range manifest for lodash@^4.17.1 fetched in 146ms
+63 silly resolveWithNewModule lodash@4.17.11 checking installable status
+64 silly pacote range manifest for semver@^5.5.0 fetched in 99ms
+65 silly resolveWithNewModule semver@5.5.1 checking installable status
+66 http fetch GET 304 https://registry.npmjs.org/generic-pool 149ms (from cache)
+67 silly pacote range manifest for bluebird@^3.5.0 fetched in 154ms
+68 silly resolveWithNewModule bluebird@3.5.2 checking installable status
+69 silly pacote range manifest for debug@^3.1.0 fetched in 154ms
+70 silly resolveWithNewModule debug@3.2.5 checking installable status
+71 silly pacote range manifest for generic-pool@^3.4.0 fetched in 158ms
+72 silly resolveWithNewModule generic-pool@3.4.2 checking installable status
+73 http fetch GET 200 https://registry.npmjs.org/terraformer-wkt-parser 27ms
+74 http fetch GET 200 https://registry.npmjs.org/toposort-class 27ms
+75 silly pacote range manifest for terraformer-wkt-parser@^1.1.2 fetched in 42ms
+76 silly resolveWithNewModule terraformer-wkt-parser@1.2.0 checking installable status
+77 http fetch GET 200 https://registry.npmjs.org/uuid 36ms
+78 silly pacote range manifest for toposort-class@^1.0.1 fetched in 43ms
+79 silly resolveWithNewModule toposort-class@1.0.1 checking installable status
+80 http fetch GET 200 https://registry.npmjs.org/wkx 36ms
+81 http fetch GET 200 https://registry.npmjs.org/validator 41ms
+82 silly pacote range manifest for uuid@^3.2.1 fetched in 44ms
+83 silly resolveWithNewModule uuid@3.3.2 checking installable status
+84 silly pacote range manifest for wkx@^0.4.1 fetched in 43ms
+85 silly resolveWithNewModule wkx@0.4.5 checking installable status
+86 silly pacote range manifest for validator@^10.4.0 fetched in 46ms
+87 silly resolveWithNewModule validator@10.8.0 checking installable status
+88 http fetch GET 200 https://registry.npmjs.org/is-bluebird 31ms
+89 http fetch GET 200 https://registry.npmjs.org/shimmer 31ms
+90 silly pacote range manifest for is-bluebird@^1.0.2 fetched in 34ms
+91 silly resolveWithNewModule is-bluebird@1.0.2 checking installable status
+92 silly pacote range manifest for shimmer@^1.1.0 fetched in 35ms
+93 silly resolveWithNewModule shimmer@1.2.0 checking installable status
+94 http fetch GET 304 https://registry.npmjs.org/ms 25ms (from cache)
+95 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.1.tgz 32ms
+96 silly pacote range manifest for ms@^2.1.1 fetched in 60ms
+97 silly resolveWithNewModule ms@2.1.1 checking installable status
+98 http fetch GET 200 https://registry.npmjs.org/terraformer 18ms
+99 silly pacote range manifest for terraformer@~1.0.5 fetched in 20ms
+100 silly resolveWithNewModule terraformer@1.0.9 checking installable status
+101 http fetch GET 200 https://registry.npmjs.org/@types%2fgeojson 27ms
+102 silly pacote range manifest for @types/geojson@^1.0.0 fetched in 29ms
+103 silly resolveWithNewModule @types/geojson@1.0.6 checking installable status
+104 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 43ms
+105 silly pacote range manifest for @types/node@* fetched in 54ms
+106 silly resolveWithNewModule @types/node@10.11.6 checking installable status
+107 timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 594ms
+108 timing stage:loadIdealTree Completed in 874ms
+109 silly currentTree backend@0.0.0
+109 silly currentTree ├── @types/geojson@1.0.6
+109 silly currentTree ├── @types/node@10.11.6
+109 silly currentTree ├── accepts@1.3.5
+109 silly currentTree ├── acorn-globals@1.0.9
+109 silly currentTree ├── acorn@2.7.0
+109 silly currentTree ├── align-text@0.1.4
+109 silly currentTree ├── amdefine@1.0.1
+109 silly currentTree ├── array-flatten@1.1.1
+109 silly currentTree ├── asap@1.0.0
+109 silly currentTree ├─┬ basic-auth@2.0.1
+109 silly currentTree │ └── safe-buffer@5.1.2
+109 silly currentTree ├── bluebird@3.5.2
+109 silly currentTree ├── body-parser@1.18.2
+109 silly currentTree ├── buffer-writer@1.0.1
+109 silly currentTree ├── bytes@3.0.0
+109 silly currentTree ├── camelcase@1.2.1
+109 silly currentTree ├── center-align@0.1.3
+109 silly currentTree ├── character-parser@1.2.1
+109 silly currentTree ├─┬ clean-css@3.4.28
+109 silly currentTree │ └── commander@2.8.1
+109 silly currentTree ├─┬ cliui@2.1.0
+109 silly currentTree │ └── wordwrap@0.0.2
+109 silly currentTree ├── cls-bluebird@2.1.0
+109 silly currentTree ├── commander@2.6.0
+109 silly currentTree ├── constantinople@3.0.2
+109 silly currentTree ├── content-disposition@0.5.2
+109 silly currentTree ├── content-type@1.0.4
+109 silly currentTree ├── cookie-parser@1.4.3
+109 silly currentTree ├── cookie-signature@1.0.6
+109 silly currentTree ├── cookie@0.3.1
+109 silly currentTree ├── css-parse@1.0.4
+109 silly currentTree ├── css-stringify@1.0.5
+109 silly currentTree ├── css@1.0.8
+109 silly currentTree ├── debug@2.6.9
+109 silly currentTree ├── decamelize@1.2.0
+109 silly currentTree ├── depd@1.1.2
+109 silly currentTree ├── destroy@1.0.4
+109 silly currentTree ├── dottie@2.0.0
+109 silly currentTree ├── ee-first@1.1.1
+109 silly currentTree ├── encodeurl@1.0.2
+109 silly currentTree ├── escape-html@1.0.3
+109 silly currentTree ├── etag@1.8.1
+109 silly currentTree ├── express@4.16.3
+109 silly currentTree ├── finalhandler@1.1.1
+109 silly currentTree ├── forwarded@0.1.2
+109 silly currentTree ├── fresh@0.5.2
+109 silly currentTree ├── generic-pool@2.4.3
+109 silly currentTree ├── graceful-readlink@1.0.1
+109 silly currentTree ├── http-errors@1.6.3
+109 silly currentTree ├── iconv-lite@0.4.19
+109 silly currentTree ├── inflection@1.12.0
+109 silly currentTree ├── inherits@2.0.3
+109 silly currentTree ├── ipaddr.js@1.8.0
+109 silly currentTree ├── is-bluebird@1.0.2
+109 silly currentTree ├── is-buffer@1.1.6
+109 silly currentTree ├── is-promise@2.1.0
+109 silly currentTree ├── jade@1.11.0
+109 silly currentTree ├── js-string-escape@1.0.1
+109 silly currentTree ├── jstransformer@0.0.2
+109 silly currentTree ├── kind-of@3.2.2
+109 silly currentTree ├── lazy-cache@1.0.4
+109 silly currentTree ├── lodash@4.17.11
+109 silly currentTree ├── longest@1.0.1
+109 silly currentTree ├── manakin@0.5.1
+109 silly currentTree ├── media-typer@0.3.0
+109 silly currentTree ├── merge-descriptors@1.0.1
+109 silly currentTree ├── methods@1.1.2
+109 silly currentTree ├── mime-db@1.36.0
+109 silly currentTree ├── mime-types@2.1.20
+109 silly currentTree ├── mime@1.4.1
+109 silly currentTree ├── minimist@0.0.8
+109 silly currentTree ├── mkdirp@0.5.1
+109 silly currentTree ├── moment-timezone@0.5.21
+109 silly currentTree ├── moment@2.22.2
+109 silly currentTree ├── morgan@1.9.1
+109 silly currentTree ├── ms@2.0.0
+109 silly currentTree ├── negotiator@0.6.1
+109 silly currentTree ├── object-assign@4.1.0
+109 silly currentTree ├── on-finished@2.3.0
+109 silly currentTree ├── on-headers@1.0.1
+109 silly currentTree ├── optimist@0.3.7
+109 silly currentTree ├── packet-reader@0.3.1
+109 silly currentTree ├── parseurl@1.3.2
+109 silly currentTree ├── path-to-regexp@0.1.7
+109 silly currentTree ├── pg-connection-string@0.1.3
+109 silly currentTree ├── pg-hstore@2.3.2
+109 silly currentTree ├── pg-int8@1.0.1
+109 silly currentTree ├── pg-minify@0.5.4
+109 silly currentTree ├── pg-pool@1.8.0
+109 silly currentTree ├─┬ pg-promise@8.5.0
+109 silly currentTree │ ├── pg-pool@2.0.3
+109 silly currentTree │ ├── pg-types@1.12.1
+109 silly currentTree │ └── pg@7.5.0
+109 silly currentTree ├── pg-types@1.13.0
+109 silly currentTree ├── pg@6.4.2
+109 silly currentTree ├── pgpass@1.0.2
+109 silly currentTree ├── postgres-array@1.0.3
+109 silly currentTree ├── postgres-bytea@1.0.0
+109 silly currentTree ├── postgres-date@1.0.3
+109 silly currentTree ├── postgres-interval@1.1.2
+109 silly currentTree ├── promise@6.1.0
+109 silly currentTree ├── proxy-addr@2.0.4
+109 silly currentTree ├── qs@6.5.1
+109 silly currentTree ├── range-parser@1.2.0
+109 silly currentTree ├─┬ raw-body@2.3.2
+109 silly currentTree │ ├── depd@1.1.1
+109 silly currentTree │ ├── http-errors@1.6.2
+109 silly currentTree │ └── setprototypeof@1.0.3
+109 silly currentTree ├── repeat-string@1.6.1
+109 silly currentTree ├── retry-as-promised@2.3.2
+109 silly currentTree ├── right-align@0.1.3
+109 silly currentTree ├── safe-buffer@5.1.1
+109 silly currentTree ├── semver@4.3.2
+109 silly currentTree ├── send@0.16.2
+109 silly currentTree ├─┬ sequelize@4.39.0
+109 silly currentTree │ ├── debug@3.2.5
+109 silly currentTree │ ├── generic-pool@3.4.2
+109 silly currentTree │ ├── ms@2.1.1
+109 silly currentTree │ └── semver@5.5.1
+109 silly currentTree ├── serve-static@1.13.2
+109 silly currentTree ├── setprototypeof@1.1.0
+109 silly currentTree ├── shimmer@1.2.0
+109 silly currentTree ├── source-map@0.4.4
+109 silly currentTree ├── spex@2.0.2
+109 silly currentTree ├── split@1.0.1
+109 silly currentTree ├── statuses@1.4.0
+109 silly currentTree ├── terraformer-wkt-parser@1.2.0
+109 silly currentTree ├── terraformer@1.0.9
+109 silly currentTree ├── through@2.3.8
+109 silly currentTree ├── toposort-class@1.0.1
+109 silly currentTree ├─┬ transformers@2.1.0
+109 silly currentTree │ ├── is-promise@1.0.1
+109 silly currentTree │ ├── promise@2.0.0
+109 silly currentTree │ ├── source-map@0.1.43
+109 silly currentTree │ └── uglify-js@2.2.5
+109 silly currentTree ├── type-is@1.6.16
+109 silly currentTree ├─┬ uglify-js@2.8.29
+109 silly currentTree │ └── source-map@0.5.7
+109 silly currentTree ├── uglify-to-browserify@1.0.2
+109 silly currentTree ├── underscore@1.9.1
+109 silly currentTree ├── unpipe@1.0.0
+109 silly currentTree ├── utils-merge@1.0.1
+109 silly currentTree ├── uuid@3.3.2
+109 silly currentTree ├── validator@10.8.0
+109 silly currentTree ├── vary@1.1.2
+109 silly currentTree ├── void-elements@2.0.1
+109 silly currentTree ├── window-size@0.1.0
+109 silly currentTree ├─┬ with@4.0.3
+109 silly currentTree │ └── acorn@1.2.2
+109 silly currentTree ├── wkx@0.4.5
+109 silly currentTree ├── wordwrap@0.0.3
+109 silly currentTree ├── xtend@4.0.1
+109 silly currentTree └── yargs@3.10.0
+110 silly idealTree backend@0.0.0
+110 silly idealTree ├── @types/geojson@1.0.6
+110 silly idealTree ├── @types/node@10.11.6
+110 silly idealTree ├── accepts@1.3.5
+110 silly idealTree ├── acorn-globals@1.0.9
+110 silly idealTree ├── acorn@2.7.0
+110 silly idealTree ├── align-text@0.1.4
+110 silly idealTree ├── amdefine@1.0.1
+110 silly idealTree ├── array-flatten@1.1.1
+110 silly idealTree ├── asap@1.0.0
+110 silly idealTree ├─┬ basic-auth@2.0.1
+110 silly idealTree │ └── safe-buffer@5.1.2
+110 silly idealTree ├── bluebird@3.5.2
+110 silly idealTree ├── body-parser@1.18.2
+110 silly idealTree ├── buffer-writer@1.0.1
+110 silly idealTree ├── bytes@3.0.0
+110 silly idealTree ├── camelcase@1.2.1
+110 silly idealTree ├── center-align@0.1.3
+110 silly idealTree ├── character-parser@1.2.1
+110 silly idealTree ├─┬ clean-css@3.4.28
+110 silly idealTree │ └── commander@2.8.1
+110 silly idealTree ├─┬ cliui@2.1.0
+110 silly idealTree │ └── wordwrap@0.0.2
+110 silly idealTree ├── cls-bluebird@2.1.0
+110 silly idealTree ├── commander@2.6.0
+110 silly idealTree ├── constantinople@3.0.2
+110 silly idealTree ├── content-disposition@0.5.2
+110 silly idealTree ├── content-type@1.0.4
+110 silly idealTree ├── cookie-parser@1.4.3
+110 silly idealTree ├── cookie-signature@1.0.6
+110 silly idealTree ├── cookie@0.3.1
+110 silly idealTree ├── css-parse@1.0.4
+110 silly idealTree ├── css-stringify@1.0.5
+110 silly idealTree ├── css@1.0.8
+110 silly idealTree ├── debug@2.6.9
+110 silly idealTree ├── decamelize@1.2.0
+110 silly idealTree ├── depd@1.1.2
+110 silly idealTree ├── destroy@1.0.4
+110 silly idealTree ├── dottie@2.0.0
+110 silly idealTree ├── ee-first@1.1.1
+110 silly idealTree ├── encodeurl@1.0.2
+110 silly idealTree ├── escape-html@1.0.3
+110 silly idealTree ├── etag@1.8.1
+110 silly idealTree ├── express@4.16.3
+110 silly idealTree ├── finalhandler@1.1.1
+110 silly idealTree ├── forwarded@0.1.2
+110 silly idealTree ├── fresh@0.5.2
+110 silly idealTree ├── generic-pool@2.4.3
+110 silly idealTree ├── graceful-readlink@1.0.1
+110 silly idealTree ├── http-errors@1.6.3
+110 silly idealTree ├── iconv-lite@0.4.19
+110 silly idealTree ├── inflection@1.12.0
+110 silly idealTree ├── inherits@2.0.3
+110 silly idealTree ├── ipaddr.js@1.8.0
+110 silly idealTree ├── is-bluebird@1.0.2
+110 silly idealTree ├── is-buffer@1.1.6
+110 silly idealTree ├── is-promise@2.1.0
+110 silly idealTree ├── jade@1.11.0
+110 silly idealTree ├── js-string-escape@1.0.1
+110 silly idealTree ├── jstransformer@0.0.2
+110 silly idealTree ├── kind-of@3.2.2
+110 silly idealTree ├── lazy-cache@1.0.4
+110 silly idealTree ├── lodash@4.17.11
+110 silly idealTree ├── longest@1.0.1
+110 silly idealTree ├── manakin@0.5.1
+110 silly idealTree ├── media-typer@0.3.0
+110 silly idealTree ├── merge-descriptors@1.0.1
+110 silly idealTree ├── methods@1.1.2
+110 silly idealTree ├── mime-db@1.36.0
+110 silly idealTree ├── mime-types@2.1.20
+110 silly idealTree ├── mime@1.4.1
+110 silly idealTree ├── minimist@0.0.8
+110 silly idealTree ├── mkdirp@0.5.1
+110 silly idealTree ├── moment-timezone@0.5.21
+110 silly idealTree ├── moment@2.22.2
+110 silly idealTree ├── morgan@1.9.1
+110 silly idealTree ├── ms@2.0.0
+110 silly idealTree ├── negotiator@0.6.1
+110 silly idealTree ├── object-assign@4.1.0
+110 silly idealTree ├── on-finished@2.3.0
+110 silly idealTree ├── on-headers@1.0.1
+110 silly idealTree ├── optimist@0.3.7
+110 silly idealTree ├── packet-reader@0.3.1
+110 silly idealTree ├── parseurl@1.3.2
+110 silly idealTree ├── path-to-regexp@0.1.7
+110 silly idealTree ├── pg-connection-string@0.1.3
+110 silly idealTree ├── pg-hstore@2.3.2
+110 silly idealTree ├── pg-int8@1.0.1
+110 silly idealTree ├── pg-minify@0.5.4
+110 silly idealTree ├── pg-pool@1.8.0
+110 silly idealTree ├─┬ pg-promise@8.5.0
+110 silly idealTree │ ├── pg-pool@2.0.3
+110 silly idealTree │ ├── pg-types@1.12.1
+110 silly idealTree │ └── pg@7.5.0
+110 silly idealTree ├── pg-types@1.13.0
+110 silly idealTree ├── pg@6.4.2
+110 silly idealTree ├── pgpass@1.0.2
+110 silly idealTree ├── postgres-array@1.0.3
+110 silly idealTree ├── postgres-bytea@1.0.0
+110 silly idealTree ├── postgres-date@1.0.3
+110 silly idealTree ├── postgres-interval@1.1.2
+110 silly idealTree ├── promise@6.1.0
+110 silly idealTree ├── proxy-addr@2.0.4
+110 silly idealTree ├── qs@6.5.1
+110 silly idealTree ├── range-parser@1.2.0
+110 silly idealTree ├─┬ raw-body@2.3.2
+110 silly idealTree │ ├── depd@1.1.1
+110 silly idealTree │ ├── http-errors@1.6.2
+110 silly idealTree │ └── setprototypeof@1.0.3
+110 silly idealTree ├── repeat-string@1.6.1
+110 silly idealTree ├── retry-as-promised@2.3.2
+110 silly idealTree ├── right-align@0.1.3
+110 silly idealTree ├── safe-buffer@5.1.1
+110 silly idealTree ├── semver@4.3.2
+110 silly idealTree ├── send@0.16.2
+110 silly idealTree ├─┬ sequelize@4.39.0
+110 silly idealTree │ ├── debug@3.2.5
+110 silly idealTree │ ├── generic-pool@3.4.2
+110 silly idealTree │ ├── ms@2.1.1
+110 silly idealTree │ └── semver@5.5.1
+110 silly idealTree ├── serve-static@1.13.2
+110 silly idealTree ├── setprototypeof@1.1.0
+110 silly idealTree ├── shimmer@1.2.0
+110 silly idealTree ├── source-map@0.4.4
+110 silly idealTree ├── spex@2.0.2
+110 silly idealTree ├── split@1.0.1
+110 silly idealTree ├── statuses@1.4.0
+110 silly idealTree ├── terraformer-wkt-parser@1.2.0
+110 silly idealTree ├── terraformer@1.0.9
+110 silly idealTree ├── through@2.3.8
+110 silly idealTree ├── toposort-class@1.0.1
+110 silly idealTree ├─┬ transformers@2.1.0
+110 silly idealTree │ ├── is-promise@1.0.1
+110 silly idealTree │ ├── promise@2.0.0
+110 silly idealTree │ ├── source-map@0.1.43
+110 silly idealTree │ └── uglify-js@2.2.5
+110 silly idealTree ├── type-is@1.6.16
+110 silly idealTree ├─┬ uglify-js@2.8.29
+110 silly idealTree │ └── source-map@0.5.7
+110 silly idealTree ├── uglify-to-browserify@1.0.2
+110 silly idealTree ├── underscore@1.9.1
+110 silly idealTree ├── unpipe@1.0.0
+110 silly idealTree ├── utils-merge@1.0.1
+110 silly idealTree ├── uuid@3.3.2
+110 silly idealTree ├── validator@10.8.0
+110 silly idealTree ├── vary@1.1.2
+110 silly idealTree ├── void-elements@2.0.1
+110 silly idealTree ├── window-size@0.1.0
+110 silly idealTree ├─┬ with@4.0.3
+110 silly idealTree │ └── acorn@1.2.2
+110 silly idealTree ├── wkx@0.4.5
+110 silly idealTree ├── wordwrap@0.0.3
+110 silly idealTree ├── xtend@4.0.1
+110 silly idealTree └── yargs@3.10.0
+111 silly install generateActionsToTake
+112 warn checkPermissions Missing write access to /home/centos/backend/node_modules/sequelize
+113 timing stage:rollbackFailedOptional Completed in 0ms
+114 timing stage:runTopLevelLifecycles Completed in 1707ms
+115 silly saveTree backend@0.0.0
+115 silly saveTree ├─┬ cookie-parser@1.4.3
+115 silly saveTree │ ├── cookie-signature@1.0.6
+115 silly saveTree │ └── cookie@0.3.1
+115 silly saveTree ├─┬ debug@2.6.9
+115 silly saveTree │ └── ms@2.0.0
+115 silly saveTree ├─┬ express@4.16.3
+115 silly saveTree │ ├─┬ accepts@1.3.5
+115 silly saveTree │ │ ├─┬ mime-types@2.1.20
+115 silly saveTree │ │ │ └── mime-db@1.36.0
+115 silly saveTree │ │ └── negotiator@0.6.1
+115 silly saveTree │ ├── array-flatten@1.1.1
+115 silly saveTree │ ├─┬ body-parser@1.18.2
+115 silly saveTree │ │ ├── bytes@3.0.0
+115 silly saveTree │ │ ├── content-type@1.0.4
+115 silly saveTree │ │ ├── depd@1.1.2
+115 silly saveTree │ │ ├─┬ http-errors@1.6.3
+115 silly saveTree │ │ │ ├── inherits@2.0.3
+115 silly saveTree │ │ │ ├── setprototypeof@1.1.0
+115 silly saveTree │ │ │ └── statuses@1.4.0
+115 silly saveTree │ │ ├── iconv-lite@0.4.19
+115 silly saveTree │ │ ├─┬ on-finished@2.3.0
+115 silly saveTree │ │ │ └── ee-first@1.1.1
+115 silly saveTree │ │ ├── qs@6.5.1
+115 silly saveTree │ │ ├─┬ raw-body@2.3.2
+115 silly saveTree │ │ │ ├─┬ http-errors@1.6.2
+115 silly saveTree │ │ │ │ ├── depd@1.1.1
+115 silly saveTree │ │ │ │ └── setprototypeof@1.0.3
+115 silly saveTree │ │ │ └── unpipe@1.0.0
+115 silly saveTree │ │ └─┬ type-is@1.6.16
+115 silly saveTree │ │   └── media-typer@0.3.0
+115 silly saveTree │ ├── content-disposition@0.5.2
+115 silly saveTree │ ├── content-type@1.0.4
+115 silly saveTree │ ├── depd@1.1.2
+115 silly saveTree │ ├── encodeurl@1.0.2
+115 silly saveTree │ ├── escape-html@1.0.3
+115 silly saveTree │ ├── etag@1.8.1
+115 silly saveTree │ ├─┬ finalhandler@1.1.1
+115 silly saveTree │ │ └── parseurl@1.3.2
+115 silly saveTree │ ├── fresh@0.5.2
+115 silly saveTree │ ├── merge-descriptors@1.0.1
+115 silly saveTree │ ├── methods@1.1.2
+115 silly saveTree │ ├── on-finished@2.3.0
+115 silly saveTree │ ├── parseurl@1.3.2
+115 silly saveTree │ ├── path-to-regexp@0.1.7
+115 silly saveTree │ ├─┬ proxy-addr@2.0.4
+115 silly saveTree │ │ ├── forwarded@0.1.2
+115 silly saveTree │ │ └── ipaddr.js@1.8.0
+115 silly saveTree │ ├── qs@6.5.1
+115 silly saveTree │ ├── range-parser@1.2.0
+115 silly saveTree │ ├── safe-buffer@5.1.1
+115 silly saveTree │ ├─┬ send@0.16.2
+115 silly saveTree │ │ ├── destroy@1.0.4
+115 silly saveTree │ │ └── mime@1.4.1
+115 silly saveTree │ ├── serve-static@1.13.2
+115 silly saveTree │ ├── setprototypeof@1.1.0
+115 silly saveTree │ ├── statuses@1.4.0
+115 silly saveTree │ ├── type-is@1.6.16
+115 silly saveTree │ ├── utils-merge@1.0.1
+115 silly saveTree │ └── vary@1.1.2
+115 silly saveTree ├── http-errors@1.6.3
+115 silly saveTree ├─┬ jade@1.11.0
+115 silly saveTree │ ├── character-parser@1.2.1
+115 silly saveTree │ ├─┬ clean-css@3.4.28
+115 silly saveTree │ │ ├─┬ commander@2.8.1
+115 silly saveTree │ │ │ └── graceful-readlink@1.0.1
+115 silly saveTree │ │ └─┬ source-map@0.4.4
+115 silly saveTree │ │   └── amdefine@1.0.1
+115 silly saveTree │ ├── commander@2.6.0
+115 silly saveTree │ ├─┬ constantinople@3.0.2
+115 silly saveTree │ │ └── acorn@2.7.0
+115 silly saveTree │ ├─┬ jstransformer@0.0.2
+115 silly saveTree │ │ ├── is-promise@2.1.0
+115 silly saveTree │ │ └─┬ promise@6.1.0
+115 silly saveTree │ │   └── asap@1.0.0
+115 silly saveTree │ ├─┬ mkdirp@0.5.1
+115 silly saveTree │ │ └── minimist@0.0.8
+115 silly saveTree │ ├─┬ transformers@2.1.0
+115 silly saveTree │ │ ├─┬ css@1.0.8
+115 silly saveTree │ │ │ ├── css-parse@1.0.4
+115 silly saveTree │ │ │ └── css-stringify@1.0.5
+115 silly saveTree │ │ ├─┬ promise@2.0.0
+115 silly saveTree │ │ │ └── is-promise@1.0.1
+115 silly saveTree │ │ └─┬ uglify-js@2.2.5
+115 silly saveTree │ │   ├─┬ optimist@0.3.7
+115 silly saveTree │ │   │ └── wordwrap@0.0.3
+115 silly saveTree │ │   └── source-map@0.1.43
+115 silly saveTree │ ├─┬ uglify-js@2.8.29
+115 silly saveTree │ │ ├── source-map@0.5.7
+115 silly saveTree │ │ ├── uglify-to-browserify@1.0.2
+115 silly saveTree │ │ └─┬ yargs@3.10.0
+115 silly saveTree │ │   ├── camelcase@1.2.1
+115 silly saveTree │ │   ├─┬ cliui@2.1.0
+115 silly saveTree │ │   │ ├─┬ center-align@0.1.3
+115 silly saveTree │ │   │ │ ├─┬ align-text@0.1.4
+115 silly saveTree │ │   │ │ │ ├─┬ kind-of@3.2.2
+115 silly saveTree │ │   │ │ │ │ └── is-buffer@1.1.6
+115 silly saveTree │ │   │ │ │ ├── longest@1.0.1
+115 silly saveTree │ │   │ │ │ └── repeat-string@1.6.1
+115 silly saveTree │ │   │ │ └── lazy-cache@1.0.4
+115 silly saveTree │ │   │ ├── right-align@0.1.3
+115 silly saveTree │ │   │ └── wordwrap@0.0.2
+115 silly saveTree │ │   ├── decamelize@1.2.0
+115 silly saveTree │ │   └── window-size@0.1.0
+115 silly saveTree │ ├── void-elements@2.0.1
+115 silly saveTree │ └─┬ with@4.0.3
+115 silly saveTree │   ├── acorn-globals@1.0.9
+115 silly saveTree │   └── acorn@1.2.2
+115 silly saveTree ├─┬ morgan@1.9.1
+115 silly saveTree │ ├─┬ basic-auth@2.0.1
+115 silly saveTree │ │ └── safe-buffer@5.1.2
+115 silly saveTree │ └── on-headers@1.0.1
+115 silly saveTree ├─┬ pg-hstore@2.3.2
+115 silly saveTree │ └── underscore@1.9.1
+115 silly saveTree ├─┬ pg-promise@8.5.0
+115 silly saveTree │ ├── manakin@0.5.1
+115 silly saveTree │ ├── pg-minify@0.5.4
+115 silly saveTree │ ├─┬ pg@7.5.0
+115 silly saveTree │ │ ├── buffer-writer@1.0.1
+115 silly saveTree │ │ ├── packet-reader@0.3.1
+115 silly saveTree │ │ ├── pg-connection-string@0.1.3
+115 silly saveTree │ │ ├── pg-pool@2.0.3
+115 silly saveTree │ │ ├─┬ pg-types@1.12.1
+115 silly saveTree │ │ │ ├── postgres-array@1.0.3
+115 silly saveTree │ │ │ ├── postgres-bytea@1.0.0
+115 silly saveTree │ │ │ ├── postgres-date@1.0.3
+115 silly saveTree │ │ │ └─┬ postgres-interval@1.1.2
+115 silly saveTree │ │ │   └── xtend@4.0.1
+115 silly saveTree │ │ ├─┬ pgpass@1.0.2
+115 silly saveTree │ │ │ └─┬ split@1.0.1
+115 silly saveTree │ │ │   └── through@2.3.8
+115 silly saveTree │ │ └── semver@4.3.2
+115 silly saveTree │ └── spex@2.0.2
+115 silly saveTree ├─┬ pg@6.4.2
+115 silly saveTree │ ├── js-string-escape@1.0.1
+115 silly saveTree │ ├─┬ pg-pool@1.8.0
+115 silly saveTree │ │ ├── generic-pool@2.4.3
+115 silly saveTree │ │ └── object-assign@4.1.0
+115 silly saveTree │ └─┬ pg-types@1.13.0
+115 silly saveTree │   └── pg-int8@1.0.1
+115 silly saveTree └─┬ sequelize@4.39.0
+115 silly saveTree   ├── bluebird@3.5.2
+115 silly saveTree   ├─┬ cls-bluebird@2.1.0
+115 silly saveTree   │ ├── is-bluebird@1.0.2
+115 silly saveTree   │ └── shimmer@1.2.0
+115 silly saveTree   ├─┬ debug@3.2.5
+115 silly saveTree   │ └── ms@2.1.1
+115 silly saveTree   ├── dottie@2.0.0
+115 silly saveTree   ├── generic-pool@3.4.2
+115 silly saveTree   ├── inflection@1.12.0
+115 silly saveTree   ├── lodash@4.17.11
+115 silly saveTree   ├─┬ moment-timezone@0.5.21
+115 silly saveTree   │ └── moment@2.22.2
+115 silly saveTree   ├── moment@2.22.2
+115 silly saveTree   ├── retry-as-promised@2.3.2
+115 silly saveTree   ├── semver@5.5.1
+115 silly saveTree   ├─┬ terraformer-wkt-parser@1.2.0
+115 silly saveTree   │ ├── @types/geojson@1.0.6
+115 silly saveTree   │ └── terraformer@1.0.9
+115 silly saveTree   ├── toposort-class@1.0.1
+115 silly saveTree   ├── uuid@3.3.2
+115 silly saveTree   ├── validator@10.8.0
+115 silly saveTree   └─┬ wkx@0.4.5
+115 silly saveTree     └── @types/node@10.11.6
+116 verbose stack Error: EACCES: permission denied, access '/home/centos/backend/node_modules/sequelize'
+117 verbose cwd /home/centos/backend
+118 verbose Linux 3.10.0-862.11.6.el7.x86_64
+119 verbose argv "/usr/bin/node" "/usr/bin/npm" "i" "sequelize"
+120 verbose node v8.12.0
+121 verbose npm  v6.4.1
+122 error path /home/centos/backend/node_modules/sequelize
+123 error code EACCES
+124 error errno -13
+125 error syscall access
+126 error Error: EACCES: permission denied, access '/home/centos/backend/node_modules/sequelize'
+126 error  { Error: EACCES: permission denied, access '/home/centos/backend/node_modules/sequelize'
+126 error   stack: 'Error: EACCES: permission denied, access \'/home/centos/backend/node_modules/sequelize\'',
+126 error   errno: -13,
+126 error   code: 'EACCES',
+126 error   syscall: 'access',
+126 error   path: '/home/centos/backend/node_modules/sequelize' }
+127 error The operation was rejected by your operating system.
+127 error It is likely you do not have the permissions to access this file as the current user
+127 error
+127 error If you believe this might be a permissions issue, please double-check the
+127 error permissions of the file and its containing directories, or try running
+127 error the command again as root/Administrator (though this is not recommended).
+128 verbose exit [ -13, true ]

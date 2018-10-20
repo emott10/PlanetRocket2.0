@@ -1,0 +1,11 @@
+*.ssh
+*.npm
+*.bash_history
+*.bash_profile
+*.bash_logout
+*.bashrc
+*.dbshell
+*.mongorc.js
+*.viminfo
+*.config/configstore
+**/node_modules

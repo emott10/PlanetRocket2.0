@@ -1,3 +1,3 @@
-# This is the planet Rocket site
+# This is the Planet Rocket site
 Lets launch this rocket!
 

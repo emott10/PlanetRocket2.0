@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ipAddress from '../config/ipAddress.js';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 class LoginBox extends React.Component{
     constructor(props){
@@ -51,7 +52,7 @@ class LoginBox extends React.Component{
 
    handleClick(event){
        console.log('test');
-       var backendURL = "http://34.214.141.80:3001";
+       var backendURL = ipAddress +":3001";
        var self = this;
        console.log("info before sending: " + this.state.username + " " + this.state.password);
        var payload = {

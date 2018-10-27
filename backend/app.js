@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
-
+var db = require('./config/mongoConnect');
 
 var app = express();
 
@@ -29,6 +29,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 
 
 // catch 404 and forward to error handler

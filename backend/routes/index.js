@@ -13,6 +13,8 @@ router.post('/' , function(req, res){
     res.send('post request at "/"');
 });
 
+router.post('')
+
 router.options('/', function(req,res){
     console.log('options?');
 });

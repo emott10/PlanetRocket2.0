@@ -1,0 +1,29 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "This is my personal website",
+  "main": "app.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "nodemon ./bin/www", 
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
+  },
+  "author": "Levi Pole",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^4.1.0",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.1",
+    "mongoose": "^5.3.7",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.5",
+    "pg": "^7.6.0",
+    "pg-hstore": "^2.3.2",
+    "pg-promise": "^8.5.1",
+    "put": "0.0.6"
+  }
+}

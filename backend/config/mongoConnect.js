@@ -1,9 +1,9 @@
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require('mongoose');
 
-MongoClient.connect('mongodb://localhost:27017/planetrocket', { useNewUrlParser: true }, function(err, db) {
-	if(err) {
-		console.log(err);
-	}
-	});
 
-module.exports = MongoClient;
+mongoose.connect('mongodb://localhost:27017/planetrocket',  { useNewUrlParser: true });
+
+mongoose.Promise = global.Promise;
+
+var db = mongoose.connection;
+module.exports = db;

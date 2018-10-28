@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ipAddress from '../../config/ipAddress';
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
@@ -68,7 +69,7 @@ class RegisterBox extends Component{
  
     handleClick(event){
         console.log('test');
-        var backendURL = "http://localhost:3001/api/register";
+        var backendURL = ipAddress + ":3001/api/register";
         var self = this;
         console.log("info before sending: " + this.state.username + " " + this.state.password);
         var payload = {

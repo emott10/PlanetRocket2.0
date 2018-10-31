@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
+
+import {
+  Container, Col, Form,
+  FormGroup, Label, Input,
+  Button,
+} from 'reactstrap';
 class LoginBox extends Component{
     constructor(props){
         super(props);

@@ -16,9 +16,9 @@ exports.issue_key = function(req, res){
         }
         else{
             //once the user is found, compare passwords
-            bcrypt.compare(postPassword, result.password, function(err, res){
+            bcrypt.compare(postPassword, result.password, function(err, goodHash){
                 //if the passwords match, generate an API key and send it to the client
-                if(res){
+                if(goodHash){
                     console.log('passwords match');
                     apiKey = rand.generate(32);
                     //hash the apiKey and store it in mongo (or should we store the apikey and respond with the hash?)

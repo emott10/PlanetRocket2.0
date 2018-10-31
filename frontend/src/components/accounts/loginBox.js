@@ -15,29 +15,40 @@ class LoginBox extends Component{
     }
 
     render() {
-        return(
-            <div>
-                <h1>Login</h1>
-                <label htmlFor="username">Username: </label>
-                <input
-                    id="username"
+        return (
+          <Container className="LoginBox">
+            <h2>Login here</h2>
+            <Form className="form">
+              <Col>
+                <FormGroup>
+                  <Label>Email</Label>
+                  <Input
                     type="text"
-                    onChange = { this.handleUsernameChange}
-                    value={this.state.username}
-                        />
-                <br />
-                <label htmlFor="password">Password: </label>
-                <input
-                    id="password"
+                    id="username"
+                    onChange = {this.handleUsernameChange}
+                    value = {this.state.username}
+                    placeholder="myusername"
+                  />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <Label for="Password">Password</Label>
+                  <Input
                     type="password"
+                    name="password"
+                    id="password"
                     onChange = { this.handlePasswordChange}
                     value={this.state.password}
-                        />
-                <br/>
-                <input type="submit" onClick = {(event) => this.handleClick(event)} />
-            </div>
+                    placeholder="********"
+                  />
+                </FormGroup>
+              </Col>
+              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+            </Form>
+          </Container>
         );
-   }
+      }
 
    handlePasswordChange(event){
        this.setState({password: event.target.value});

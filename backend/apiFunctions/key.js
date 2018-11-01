@@ -28,8 +28,8 @@ exports.issue_key = function(req, res){
 
                         }
                         else{
-                            //create the mongo key document with the hashed key value 
-                            Key.create({keyID: apiHash}, function(err, key){
+                            //create the mongo key document with the hashed key value and a reference to the user that will be using the apiKey
+                            Key.create({keyID: apiHash, ownedBy: result._id}, function(err, key){
                                 if(err){
                                     console.log(err);
                                 }

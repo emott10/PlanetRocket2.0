@@ -59,16 +59,16 @@ class RegisterBox extends Component{
 
       handlePasswordChange(event){
         this.setState({password: event.target.value});
-        console.log(this.state.password);
+        
     }
  
     handleUsernameChange(event){
          this.setState({username: event.target.value});
-         console.log(this.state.username)
+         
      }
  
     handleClick(event){
-        console.log('test');
+        
         var backendURL = ipAddress + ":3001/api/register";
         var self = this;
         console.log("info before sending: " + this.state.username + " " + this.state.password);

@@ -19,6 +19,7 @@ class RegisterBox extends Component{
         this.handleClick = this.handleClick.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
+       // this.handleLoginClick = this.handleLoginClick.bind(this);
     }
 
     render() {
@@ -56,7 +57,7 @@ class RegisterBox extends Component{
           </Container>
         );
       }
-
+    
       handlePasswordChange(event){
         this.setState({password: event.target.value});
         console.log(this.state.password);
@@ -66,9 +67,15 @@ class RegisterBox extends Component{
          this.setState({username: event.target.value});
          console.log(this.state.username)
      }
- 
+
+     /*
+    handleLoginClick(e){
+      e.preventDefault();
+      this.setState
+    }
+*/
+
     handleClick(event){
-        console.log('test');
         var backendURL = ipAddress + ":3001/api/register";
         var self = this;
         console.log("info before sending: " + this.state.username + " " + this.state.password);

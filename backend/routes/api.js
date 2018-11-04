@@ -3,28 +3,16 @@ var router = express.Router();
 var User = require('../models/user');
 var bcrypt = require('bcryptjs');
 var db = require('../config/mongoConnect');
+var userFunctions = require('../apiFunctions/user');
+var keyFunctions = require('../apiFunctions/key');
+
 
 router.get('/', function(req, res, next) {
 	res.send('the base url for our api is here');
 	});
 
-router.post('/register', function(req,res,next){
-	userPass = req.body.password;
-	userName = req.body.username;
-	console.log('post request');
-	
-	
-	bcrypt.hash(userPass, 10, function(err, hash){
-		console.log('hash complete')	;
-		User.create({username: userName, password: hash}, function(err, user){
-			if(err){
-				console.log(err);
-			}
-			
-		});
-		
-	});
-	res.send('done');
-});
+router.post('/register', userFunctions.create_user);
+
+router.post('/key', keyFunctions.issue_key);
 module.exports = router;
 

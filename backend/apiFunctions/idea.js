@@ -84,3 +84,31 @@ exports.createIdea = function(req, res){
 
     }
 }
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {String} req.body.apiKey - the user's current apiKey
+ * @param {String} req.body.userName - the current user's username
+ * @returns - either error code or or success message
+ * @description - This method gets all the ideas for a particular user
+ */
+exports.getAllIdeas = function(req, res){
+    var key = req.body.apiKey;
+    var userName = req.body.userName;
+
+    var isValidKey = verify.verifyKey(key,userName);
+
+    if(isValidKey.isvalid){
+        Idea.find({owner: isValidKey.userid}, function(err, ideas){
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.send(ideas);
+            }
+        })
+
+    }
+}

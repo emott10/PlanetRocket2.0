@@ -18,6 +18,6 @@ router.post('/key', keyFunctions.issue_key);
 
 router.post('/idea', ideaFunctions.createIdea);
 
-router.get('/idea/:ideaId');
+router.get('/idea/:ideaId', ideaFunctions.getIdea);
 module.exports = router;
 

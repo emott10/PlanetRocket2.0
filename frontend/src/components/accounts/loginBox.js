@@ -59,26 +59,28 @@ class LoginBox extends Component{
 
    handlePasswordChange(event){
        this.setState({password: event.target.value});
-       console.log(this.state.password);
+       
    }
 
    handleUsernameChange(event){
         this.setState({username: event.target.value});
-        console.log(this.state.username)
+        
     }
 
    handleClick(event){
-       console.log(ipAddress);
+       
        
        var loginURL = ipAddress + ':3001/api/key';
-       
+       var self = this;
        console.log("info before sending: " + this.state.username + " " + this.state.password);
        var payload = {
            "username": this.state.username,
            "password": this.state.password
        };
        axios.post(loginURL, payload).then(function(response) {
-           console.log(response);
+         console.log(response);
+           self.props.newKey(response.yourKey);
+           
        });
    }
 }

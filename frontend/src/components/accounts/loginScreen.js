@@ -28,17 +28,18 @@ class LoginScreen extends Component{
             this.setState({buttonMessage: 'Login'});
             this.setState({isLogin: false});
             this.setState({pageView: <RegisterBox /> });
+            
         }
         else{
             this.setState({buttonMessage: 'Register'});
             this.setState({isLogin: true});
-            this.setState({pageView: <LoginBox /> });
+            this.setState({pageView: <LoginBox newKey={this.props.alterKey}/> });
         }
     }
 
     componentDidMount(){
         if(this.state.isLogin){
-            this.setState({pageView: <LoginBox /> });
+            this.setState({pageView: <LoginBox newKey={this.props.alterKey}/> });
         }
         else if(!this.state.isLogin){
             this.setState({pageView: <RegisterBox /> });

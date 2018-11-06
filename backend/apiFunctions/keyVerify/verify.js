@@ -1,5 +1,5 @@
-var User = require('../models/user');
-var Key = require('../models/key');
+var User = require('../../models/user');
+var Key = require('../../models/key');
 var bcrypt = require('bcryptjs');
 
     

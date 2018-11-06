@@ -14,6 +14,9 @@ exports.issue_key = function(req, res){
             var jsonResponse = {loginSuccess: false, yourKey: null };
             res.send(jsonResponse);
         }
+        else if(result === null){
+            console.log('user not found');
+        }
         else{
             //once the user is found, compare passwords
             bcrypt.compare(postPassword, result.password, function(err, goodHash){
@@ -57,8 +60,9 @@ exports.issue_key = function(req, res){
                         
                         //if there is already an apiKey, update it its expiration time and return it
                         else{
-                            
-                            existingKey.createdAt = Date.now;
+                            var dat = new Date();
+                            dat = Date.now();
+                            existingKey.createdAt = dat;
                             existingKey.save(function(err){
                                 if(err){
                                     console.log(err);

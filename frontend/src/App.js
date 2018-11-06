@@ -8,15 +8,22 @@ class App extends Component {
 
   constructor(props){
     super(props);
+    this.state ={apiHash: null}
+    this.saveApiKey = this.saveApiKey.bind(this);
   }
 
   render() {
     return (
       <div className="App">  
-        <LoginScreen /> 
+        <LoginScreen alterKey={this.saveApiKey} /> 
       </div>
     );
   }
+  saveApiKey(apiKey){
+    this.setState({apiHash: apiKey});
+    console.log(this.state.apiHash);
+  }
 }
+
 
 export default App;

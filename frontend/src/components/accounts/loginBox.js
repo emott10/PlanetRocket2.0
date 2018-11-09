@@ -68,20 +68,24 @@ class LoginBox extends Component{
     }
 
    handleClick(event){
-       
-       
-       var loginURL = ipAddress + ':3001/api/key';
-       var self = this;
-       console.log("info before sending: " + this.state.username + " " + this.state.password);
-       var payload = {
-           "username": this.state.username,
-           "password": this.state.password
-       };
-       axios.post(loginURL, payload).then(function(response) {
-         console.log(response);
-           self.props.newKey(response.yourKey);
+      //get the url to send our post request to
+      var loginURL = ipAddress + ':3001/api/key';
+
+      //define self so that we can access prop methods from within the axios response
+      var self = this;
+
+      //the data being sent inn our post request
+      var payload = {
+          "username": this.state.username,
+          "password": this.state.password
+      };
+
+      //the post request and response are handled here
+      axios.post(loginURL, payload).then(function(response) {
+        //set the app state APIHash value to our received apiHAsh
+        self.props.newKey(response.data.yourKey);
            
-       });
+      });
    }
 }
 export default LoginBox;;

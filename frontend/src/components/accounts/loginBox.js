@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ipAddress from '../../config/ipAddress';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 
 import {
@@ -8,6 +7,7 @@ import {
   FormGroup, Label, Input,
   Button,
 } from 'reactstrap';
+
 class LoginBox extends Component{
     constructor(props){
         super(props);
@@ -68,16 +68,15 @@ class LoginBox extends Component{
     }
 
    handleClick(event){
-       console.log(ipAddress);
-       
-       var loginURL = ipAddress + ':3001/api/key';
-       
+       console.log('test');
+       var backendURL = "http://34.214.141.80:3001";
+       var self = this;
        console.log("info before sending: " + this.state.username + " " + this.state.password);
        var payload = {
            "username": this.state.username,
            "password": this.state.password
        };
-       axios.post(loginURL, payload).then(function(response) {
+       axios.post(backendURL, payload).then(function(response) {
            console.log(response);
        });
    }

@@ -1,7 +1,13 @@
 var User = require('../models/user');
 var bcrypt = require('bcryptjs');
 
-
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns jsonResponse object containing a userCreated boolean and a message
+ * 
+ */
 exports.create_user = function(req, res){
     var postUsername = req.body.username;
     var postPassword = req.body.password;

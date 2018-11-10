@@ -5,6 +5,7 @@ var bcrypt = require('bcryptjs');
 var db = require('../config/mongoConnect');
 var userFunctions = require('../apiFunctions/user');
 var keyFunctions = require('../apiFunctions/key');
+var ideaFunctions = require('../apiFunctions/idea');
 
 
 router.get('/', function(req, res, next) {
@@ -14,5 +15,9 @@ router.get('/', function(req, res, next) {
 router.post('/register', userFunctions.create_user);
 
 router.post('/key', keyFunctions.issue_key);
+
+router.post('/idea', ideaFunctions.createIdea);
+
+router.get('/idea/:ideaId', ideaFunctions.getIdea);
 module.exports = router;
 

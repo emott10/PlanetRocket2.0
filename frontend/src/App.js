@@ -37,9 +37,9 @@ class App extends Component {
         </div>
     </BrowserRouter>
       
-      <div className="App">  
-        {this.state.currentScreen} 
-      </div>
+     // <div className="App">  
+      //  {this.state.currentScreen} 
+      //</div>
     );
   }
   saveApiKey(apiKey){

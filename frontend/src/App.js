@@ -1,60 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom'
 import LoginBox from './components/accounts/loginBox';
 import RegisterBox from './components/accounts/registerBox';
-import LoginScreen from './components/accounts/loginScreen';
-import Dashboard from './components/dashboard/dashboard';
-
-
+import FullPage from './splash.js';
 
 class App extends Component {
 
   constructor(props){
     super(props);
-
-    //make sure to bind methods before state declaration, 
-    //otherwise the methods will reference the wrong 'this' object
+    this.state ={apiHash: null}
     this.saveApiKey = this.saveApiKey.bind(this);
-    this.getApiKey = this.getApiKey.bind(this);
-    this.changeScreen = this.changeScreen.bind(this);
-
-    this.state ={
-      apiHash: null,
-      currentScreen: <LoginScreen alterKey={this.saveApiKey}/> 
-    }
-    
   }
 
   render() {
     return (
-      <div className="App">  
-        {this.state.currentScreen} 
-<<<<<<< HEAD
-        <Dashboard />
-=======
->>>>>>> 1acf5f29bf82c9893dd5b82aba791703ec08abd4
-      </div>
+
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={FullPage} />
+          <Route path="/login" component= {() => <LoginBox alterKey={this.saveApiKey}/>} />
+          <Route path="/register" component={() => <RegisterBox alterKey={this.saveApiKey}/>} />
+        </div>
+    </BrowserRouter>
+      
     );
   }
   saveApiKey(apiKey){
     this.setState({apiHash: apiKey});
-    this.setState({currentScreen: <Dashboard newScreen={this.changeScreen}/> })
-  }
-
-  getApiKey(){
-    return this.state.apiHash;
-  }
-
-  changeScreen(screenName){
-    var screens = {
-      login: <LoginScreen alterKey={this.saveApiKey}/>,
-      dashboard: <Dashboard newScreen={this.changeScreen}/>
-    }
-    console.log(screenName);
-    this.setState({currentScreen: screens[screenName]});
-
+    console.log(this.state.apiHash);
   }
 }
-
 
 export default App;

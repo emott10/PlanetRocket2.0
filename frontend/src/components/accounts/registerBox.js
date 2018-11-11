@@ -61,11 +61,13 @@ class RegisterBox extends Component{
       handlePasswordChange(event){
         this.setState({password: event.target.value});
         
+        console.log(this.state.password);
     }
  
     handleUsernameChange(event){
          this.setState({username: event.target.value});
          
+         console.log(this.state.username)
      }
 
      /*
@@ -77,7 +79,6 @@ class RegisterBox extends Component{
 
     handleClick(event){
         var backendURL = ipAddress + ":3001/api/register";
-        var self = this;
         console.log("info before sending: " + this.state.username + " " + this.state.password);
         var payload = {
             "username": this.state.username,
@@ -88,4 +89,4 @@ class RegisterBox extends Component{
         });
     }
 }
-export default RegisterBox;;
+export default RegisterBox;

@@ -6,9 +6,7 @@
 import React, { Component } from 'react';
 import RegisterBox from './registerBox';
 import LoginBox from './loginBox';
-import {
-    Container, Button,
-} from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 
 
 class LoginScreen extends Component{

@@ -6,7 +6,7 @@ import {
     Button,
 } from 'reactstrap';
 
-class ideaScreen extends Component{
+class IdeaScreen extends Component{
 
     constructor(props){
         super(props);
@@ -15,13 +15,11 @@ class ideaScreen extends Component{
         }
     }
 
-
-    onComponentDidMount(){
-        //grab the user's ideas here
-    }
-
-
-
-
-
+    render(){
+        return(
+            <h1> hello </h1>
+        )
+      }
 }
+
+export default IdeaScreen;

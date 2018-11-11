@@ -4,8 +4,10 @@
 */
 
 import React, { Component } from 'react';
+import IdeaScreen from '../ideas/ideaScreen';
 import {
     Container, Button,
+    Col, Row,
 } from 'reactstrap';
 
 
@@ -22,6 +24,7 @@ class Dashboard extends Component{
 
     handleIdeasClick(event){
         alert("ideas");
+        this.setState({pageView: <IdeaScreen />});
         }
     handleCanvasesClick(event){
         alert("canvas");
@@ -30,9 +33,16 @@ class Dashboard extends Component{
     render(){
         return(
             <Container className="dashboard">
-                {this.state.pageView}
-                <Button onClick = {(event) => this.handleIdeasClick(event)}> Ideas </Button>
-                <Button onClick = {(event) => this.handleCanvasesClick(event)}> Canvases </Button>
+            <Row>   
+                <Col>
+                    <Button onClick = {(event) => this.handleIdeasClick(event)}> Ideas </Button>
+                </Col>
+                <Col>
+                    <Button onClick = {(event) => this.handleCanvasesClick(event)}> Canvases </Button>
+                </Col>
+            </Row>
+            current
+            {this.state.pageView}
             </Container>
         )
     }

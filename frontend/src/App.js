@@ -28,12 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">  
-<<<<<<< HEAD
-        <LoginScreen /> 
-        <Dashboard />
-=======
         {this.state.currentScreen} 
->>>>>>> 47fb51dd1ab3ff029910a97807d68227d9ed893b
       </div>
     );
   }

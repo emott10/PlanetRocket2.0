@@ -29,7 +29,10 @@ class App extends Component {
     return (
       <div className="App">  
         {this.state.currentScreen} 
+<<<<<<< HEAD
         <Dashboard />
+=======
+>>>>>>> 1acf5f29bf82c9893dd5b82aba791703ec08abd4
       </div>
     );
   }

@@ -22,7 +22,7 @@ class LoginScreen extends Component{
     }
 
     handleClick(event){
-        if(this.state.isLogin == true){
+        if(this.state.isLogin === true){
             this.setState({buttonMessage: 'Login'});
             this.setState({isLogin: false});
             this.setState({pageView: <RegisterBox /> });

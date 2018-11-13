@@ -2,7 +2,13 @@ var User = require('../../models/user');
 var Key = require('../../models/key');
 var bcrypt = require('bcryptjs');
 
-    
+/**
+ *@param {String} key - the hash of the apiKey that the client holds 
+ *@param {String} userName - the username of the user submitting the request
+ *@returns {Object} - returns a JSON object with the user object ID 
+    and a boolean value for whether or not the key is valid
+ *@description - Verifies whether or not a user can use a api key
+ * */    
 exports.verifyKey = function(key, userName){
     var key = req.body.apiKey;
     var userName = req.body.userName;
@@ -10,7 +16,7 @@ exports.verifyKey = function(key, userName){
     var jsonResponse = {isvalid: false, userId: null};
 
     //find the User and get it's object ID
-    User.findOne({username: userName}, function(err, foundUser){
+    User.findOne({username: userName}, (err, foundUser) =>{
         if(err){
             console.log(err);
             return jsonResponse

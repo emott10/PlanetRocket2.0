@@ -23,7 +23,7 @@ exports.verifyKey = function(key, userName, req, res, nextFunction){
 
     
     //find the User and get it's object ID
-    User.findOne({username: userName}, function(err, foundUser){
+    User.findOne({username: userName}, (err, foundUser) =>{
         if(err){
             console.log(err);
             return jsonResponse

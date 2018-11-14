@@ -6,6 +6,8 @@ import {
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
+import { Link } from "react-router-dom";
+import ListItem from '@material-ui/core/ListItem';
 
 
 class RegisterBox extends Component{
@@ -52,7 +54,7 @@ class RegisterBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>
         );
@@ -77,7 +79,6 @@ class RegisterBox extends Component{
 
     handleClick(event){
         var backendURL = ipAddress + ":3001/api/register";
-        var self = this;
         console.log("info before sending: " + this.state.username + " " + this.state.password);
         var payload = {
             "username": this.state.username,
@@ -88,4 +89,4 @@ class RegisterBox extends Component{
         });
     }
 }
-export default RegisterBox;;
+export default RegisterBox;

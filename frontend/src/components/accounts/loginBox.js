@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from "react-router-dom";
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
-
 import {
   Container, Col, Form,
   FormGroup, Label, Input,
   Button,
 } from 'reactstrap';
+
 class LoginBox extends Component{
     constructor(props){
         super(props);
@@ -19,7 +21,7 @@ class LoginBox extends Component{
         this.handleClick = this.handleClick.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    }
+      }
 
     render() {
         return (
@@ -51,7 +53,12 @@ class LoginBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <Button onClick = {(event) => 
+                this.handleClick(event)
+                }>
+                Submit
+              </Button>
+              <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
             </Form>
           </Container>
         );
@@ -68,20 +75,23 @@ class LoginBox extends Component{
     }
 
    handleClick(event){
-       
-       
-       var loginURL = ipAddress + ':3001/api/key';
-       var self = this;
-       console.log("info before sending: " + this.state.username + " " + this.state.password);
-       var payload = {
-           "username": this.state.username,
-           "password": this.state.password
-       };
-       axios.post(loginURL, payload).then(function(response) {
-         console.log(response);
-           self.props.newKey(response.yourKey);
-           
-       });
+      //get the url to send our post request to
+      var loginURL = ipAddress + ':3001/api/key';
+
+      //define self so that we can access prop methods from within the axios response
+      var self = this;
+
+      //the data being sent inn our post request
+      var payload = {
+          "username": this.state.username,
+          "password": this.state.password
+      };
+      
+      //the post request and response are handled here
+      axios.post(loginURL, payload).then(function(response) {
+        //set the app state APIHash value to our received apiHAsh
+        self.props.newKey(response.data.yourKey);     
+      });
    }
 }
-export default LoginBox;;
+export default LoginBox;

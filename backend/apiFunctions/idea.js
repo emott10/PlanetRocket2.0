@@ -1,8 +1,7 @@
-var bcrypt = require('bcryptjs');
 var Idea = require('../models/idea');
-var User = require('../models/user');
-var Key = require('../models/key');
 var verify = require('./keyVerify/verify');
+var mongoose= require('mongoose');
+var objectId = mongoose.Types.ObjectId;
 
 /**
  * 
@@ -15,7 +14,7 @@ var verify = require('./keyVerify/verify');
  * @description - This method returns a user their Idea 
  */
 exports.getIdea = function(req, res){
-    var key = req.body.apiKey;
+    var key = req.params.apiKey;
     var ideaID = req.params.ideaId;
     var userName = req.body.userName;
 
@@ -60,9 +59,10 @@ exports.getIdea = function(req, res){
  * @description - This method creates a new idea object
  */
 exports.createIdea = function(req, res){
-    var key = req.body.apiKey;
+    var key = req.params.apiKey;
     var userName = req.body.userName;
     
+
 
 
     verify.verifyKey(key, userName,req,res, function(req,res, isValidKey){
@@ -89,6 +89,7 @@ exports.createIdea = function(req, res){
 
     });
 
+
     
 
    
@@ -104,8 +105,8 @@ exports.createIdea = function(req, res){
  * @description - This method gets all the ideas for a particular user
  */
 exports.getAllIdeas = function(req, res){
-    var key = req.body.apiKey;
-    var userName = req.body.userName;
+    var key = req.params.apiKey;
+    var userName = req.params.userID;
 
 
 

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom'	
+import LoginBox from './components/accounts/loginBox';	
+import RegisterBox from './components/accounts/registerBox';	
+import FullPage from './splash.js';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
 
@@ -14,7 +18,7 @@ class App extends Component {
     //otherwise the methods will reference the wrong 'this' object
     this.saveApiKey = this.saveApiKey.bind(this);
     this.getApiKey = this.getApiKey.bind(this);
-   // this.changeScreen = this.changeScreen.bind(this);
+    this.changeScreen = this.changeScreen.bind(this);
 
     this.state ={
       apiHash: null,
@@ -25,9 +29,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">  
-        {this.state.currentScreen} 
-      </div>
+      <BrowserRouter>	        {this.state.currentScreen} 
+      <div>	      </div>
+        <Route exact path="/" component={FullPage} />	
+        <Route path="/login" component= {() => <LoginBox alterKey={this.saveApiKey}/>} />	
+        <Route path="/register" component={() => <RegisterBox alterKey={this.saveApiKey}/>} />	
+      </div>	
+     </BrowserRouter>	
+      
+   // <div className="App">  	
+    //  {this.state.currentScreen} 	
+    //</div>
     );
   }
 
@@ -43,23 +55,14 @@ class App extends Component {
     return this.state.apiHash;
   }
 
-  /*
-  Levi: 11/13
-  This code is not currently in use, but may be useful?
-
   changeScreen(screenName){
     var screens = {
-      login: <LoginScreen alterKey={this.saveApiKey}/>,
-      dashboard: <Dashboard newScreen={this.changeScreen}/>
+      login: <LoginScreen alterKey={this.saveApiKey.bind(this)}/>,
+      dashboard: <Dashboard newScreen={this.changeScreen.bind(this)}/>
     }
     console.log(screenName);
-    this.setState({currentScreen: screens[screenName]});
-  
+    this.setState({currentScreen: screens[screenName]}); 
   }
-  */
-
 }
-
-
 
 export default App;

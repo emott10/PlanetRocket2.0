@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 
 
-
 class RegisterBox extends Component{
     constructor(props){
         super(props);
@@ -55,7 +54,6 @@ class RegisterBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}>Submit</Button>
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>

@@ -29,8 +29,8 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>	        {this.state.currentScreen} 
-      <div>	      </div>
+      <BrowserRouter>	       
+      <div>
         <Route exact path="/" component={FullPage} />	
         <Route path="/login" component= {() => <LoginBox alterKey={this.saveApiKey}/>} />	
         <Route path="/register" component={() => <RegisterBox alterKey={this.saveApiKey}/>} />	

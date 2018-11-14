@@ -19,7 +19,7 @@ class LoginBox extends Component{
         this.handleClick = this.handleClick.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    }
+      }
 
     render() {
         return (
@@ -51,7 +51,11 @@ class LoginBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <Button onClick = {(event) => 
+                this.handleClick(event)
+                }>
+                Submit
+              </Button>
             </Form>
           </Container>
         );
@@ -79,13 +83,12 @@ class LoginBox extends Component{
           "username": this.state.username,
           "password": this.state.password
       };
-
+      
       //the post request and response are handled here
       axios.post(loginURL, payload).then(function(response) {
         //set the app state APIHash value to our received apiHAsh
-        self.props.newKey(response.data.yourKey);
-           
+        self.props.newKey(response.data.yourKey);     
       });
    }
 }
-export default LoginBox;;
+export default LoginBox;

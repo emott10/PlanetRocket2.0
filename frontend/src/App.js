@@ -30,8 +30,13 @@ class App extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <BrowserRouter>	  
       <div>	 
+=======
+      <BrowserRouter>	       
+      <div>
+>>>>>>> 97861c6aab8e79765e0425fd12ea8e726ec815f6
         <Route exact path="/" component={FullPage} />	
         <Route path="/login" component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} />} />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>

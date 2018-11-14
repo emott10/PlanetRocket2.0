@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from "react-router-dom";
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 import {
   Container, Col, Form,
@@ -56,6 +58,7 @@ class LoginBox extends Component{
                 }>
                 Submit
               </Button>
+              <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
             </Form>
           </Container>
         );

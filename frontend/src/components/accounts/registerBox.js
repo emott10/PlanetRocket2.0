@@ -6,6 +6,9 @@ import {
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
+import { Link } from "react-router-dom";
+import ListItem from '@material-ui/core/ListItem';
+
 
 
 class RegisterBox extends Component{
@@ -52,7 +55,8 @@ class RegisterBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <Button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>
         );

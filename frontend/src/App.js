@@ -18,22 +18,24 @@ class App extends Component {
     //otherwise the methods will reference the wrong 'this' object
     this.saveApiKey = this.saveApiKey.bind(this);
     this.getApiKey = this.getApiKey.bind(this);
-    this.changeScreen = this.changeScreen.bind(this);
+    //this.changeScreen = this.changeScreen.bind(this);
+    //this.changeRoute = this.changeRoute.bind(this);
 
     this.state ={
       apiHash: null,
-      currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
+      //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
     
   }
 
   render() {
     return (
-      <BrowserRouter>	        {this.state.currentScreen} 
-      <div>	      </div>
+      <BrowserRouter>	  
+      <div>	 
         <Route exact path="/" component={FullPage} />	
-        <Route path="/login" component= {() => <LoginBox alterKey={this.saveApiKey}/>} />	
-        <Route path="/register" component={() => <RegisterBox alterKey={this.saveApiKey}/>} />	
+        <Route path="/login" component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} />} />	
+        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>
+        <Route path="/dashboard" component={Dashboard} />	
       </div>	
      </BrowserRouter>	
       
@@ -55,6 +57,7 @@ class App extends Component {
     return this.state.apiHash;
   }
 
+  /*
   changeScreen(screenName){
     var screens = {
       login: <LoginScreen alterKey={this.saveApiKey.bind(this)}/>,
@@ -63,6 +66,7 @@ class App extends Component {
     console.log(screenName);
     this.setState({currentScreen: screens[screenName]}); 
   }
+  */
 }
 
 export default App;

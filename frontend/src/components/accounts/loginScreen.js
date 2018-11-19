@@ -28,17 +28,15 @@ class LoginScreen extends Component{
 
     handleClick(event){
         if(this.state.isLogin === true){
-            this.setState({buttonMessage: "Already registered? Login here!"});
+            this.setState({buttonMessage: 'Login'});
             this.setState({isLogin: false});
             this.setState({pageView: <RegisterBox /> });
-            //this.props.changePath("/register");
             
         }
         else{
-            this.setState({buttonMessage: "Don't have an account? Register here!"});
+            this.setState({buttonMessage: 'Register'});
             this.setState({isLogin: true});
             this.setState({pageView: <LoginBox newKey={this.newKey.bind(this)}/> });
-            //this.props.changePath("/login");
         }
     }
 

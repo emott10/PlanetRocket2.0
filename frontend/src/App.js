@@ -18,6 +18,7 @@ class App extends Component {
     //otherwise the methods will reference the wrong 'this' object
     this.saveApiKey = this.saveApiKey.bind(this);
     this.getApiKey = this.getApiKey.bind(this);
+<<<<<<< HEAD
     this.checkLogin = this.checkLogin.bind(this);
     //this.changeScreen = this.changeScreen.bind(this);
     //this.changeRoute = this.changeRoute.bind(this);
@@ -26,6 +27,13 @@ class App extends Component {
       apiHash: null,
       loginSuccess: null,
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
+=======
+    this.changeScreen = this.changeScreen.bind(this);
+
+    this.state ={
+      apiHash: null,
+      currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
+>>>>>>> 6d817bd018e63dc263745372cfe66ab6be5a2b4c
     }
     
   }
@@ -62,6 +70,7 @@ class App extends Component {
     return this.state.apiHash;
   }
 
+<<<<<<< HEAD
   checkLogin(response){
     if(response){
       this.setState({loginSuccess: true})
@@ -74,6 +83,8 @@ class App extends Component {
    }
 
   /*
+=======
+>>>>>>> 6d817bd018e63dc263745372cfe66ab6be5a2b4c
   changeScreen(screenName){
     var screens = {
       login: <LoginScreen alterKey={this.saveApiKey.bind(this)}/>,
@@ -82,7 +93,6 @@ class App extends Component {
     console.log(screenName);
     this.setState({currentScreen: screens[screenName]}); 
   }
-  */
 }
 
 export default App;

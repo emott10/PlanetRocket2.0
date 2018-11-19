@@ -54,10 +54,7 @@ class RegisterBox extends Component{
                   />
                 </FormGroup>
               </Col>
-<<<<<<< HEAD
               <ListItem button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}>Submit</ListItem>
-=======
->>>>>>> 6d817bd018e63dc263745372cfe66ab6be5a2b4c
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>

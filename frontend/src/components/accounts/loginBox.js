@@ -1,6 +1,10 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from "react-router-dom";
+import { Route, Redirect } from 'react-router';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 import {
   Container, Col, Form,
@@ -14,12 +18,13 @@ class LoginBox extends Component{
         this.state={
             username:'',
             password:'',
+            loginStatus:'',
         }
 
         this.handleClick = this.handleClick.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    }
+      }
 
     render() {
         return (
@@ -51,7 +56,8 @@ class LoginBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = {(event) => this.handleClick(event)}>Submit</Button>
+              <ListItem button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}> Submit </ListItem>
+              <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
             </Form>
           </Container>
         );
@@ -79,13 +85,13 @@ class LoginBox extends Component{
           "username": this.state.username,
           "password": this.state.password
       };
-
+      
       //the post request and response are handled here
       axios.post(loginURL, payload).then(function(response) {
         //set the app state APIHash value to our received apiHAsh
-        self.props.newKey(response.data.yourKey);
-           
+        self.props.newKey(response.data.yourKey);  
+        self.props.checkLogin(response.data.loginSuccess);
       });
    }
 }
-export default LoginBox;;
+export default LoginBox;

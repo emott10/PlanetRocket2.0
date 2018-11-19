@@ -19,6 +19,11 @@ class LoginScreen extends Component{
         }
 
         this.handleClick = this.handleClick.bind(this);
+        this.newKey = this.newKey.bind(this);
+    }
+
+    newKey(apiKey){
+        this.props.alterKey(apiKey);
     }
 
     handleClick(event){
@@ -31,13 +36,13 @@ class LoginScreen extends Component{
         else{
             this.setState({buttonMessage: 'Register'});
             this.setState({isLogin: true});
-            this.setState({pageView: <LoginBox newKey={this.props.alterKey}/> });
+            this.setState({pageView: <LoginBox newKey={this.newKey.bind(this)}/> });
         }
     }
 
     componentDidMount(){
         if(this.state.isLogin){
-            this.setState({pageView: <LoginBox newKey={this.props.alterKey}/> });
+            this.setState({pageView: <LoginBox newKey={this.newKey.bind(this)}/> });
         }
         else if(!this.state.isLogin){
             this.setState({pageView: <RegisterBox /> });

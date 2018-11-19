@@ -14,13 +14,13 @@ router.post('/register', userFunctions.create_user);
 
 router.post('/key', keyFunctions.issue_key);
 
-router.post('/idea/:apiKey', ideaFunctions.createIdea);
+router.post('/idea/:apiKey/newIdea', ideaFunctions.createIdea);
 
 router.get('/idea/:apiKey/user/:userID/oneIdea/:ideaId', ideaFunctions.getIdea);
 
 router.get('/idea/:apiKey/userIdeas/:userID', ideaFunctions.getAllIdeas);
 
-router.post('/canvas/:apiKey/', canvasFunctions.createCanvas );
+router.post('/canvas/:apiKey/newCanvas', canvasFunctions.createCanvas );
 
 router.get('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctions.getCanvas);
 
@@ -30,4 +30,3 @@ router.delete('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctio
 
 
 module.exports = router;
-

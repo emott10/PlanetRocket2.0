@@ -18,28 +18,38 @@ exports.getIdea = function(req, res){
     var ideaID = req.params.ideaId;
     var userName = req.body.userName;
 
-    var isValidKey = verify.verifyKey(key, userName);
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,userName,resolve,reject);
+    });
 
-    //if the key is valid, return the requested idea
-    if(isValidKey){
-        Idea.findById(ideaID, function(err, foundIdea){
-            if(err){
-                console.log(err);
-            }
-            else if(foundIdea == null){
-                console.log('idea not found');
-            }
+    //once the key is verified or reject, respond appropriatley
+    promise.then(
+        
+        function(result){
+        //if the key is valid, return the requested idea
+            if(result){
+                Idea.findById(ideaID, function(err, foundIdea){
+                    if(err){
+                        console.log(err);
+                    }
+                    else if(foundIdea == null){
+                        console.log('idea not found');
+                    }
+                    else{
+                        //once the idea is found, send it to the client
+                        res.send(foundIdea);
+                    }
+                });
+            }    
+            //if the key is not found, return an error message
             else{
-                //once the idea is found, send it to the client
-                res.send(foundIdea);
+                res.send('key error');
             }
-        })
-    }
-
-    //if the key is not found, return an error message
-    else{
-        res.send('key error');
-    }
+        },
+        function(error){
+            console.log(error);
+        }
+    );  
 }
 
 
@@ -57,31 +67,76 @@ exports.getIdea = function(req, res){
 exports.createIdea = function(req, res){
     var key = req.params.apiKey;
     var userName = req.body.userName;
-    var ideaName = req.body.ideaName
-    var ideaDescription = req.body.ideaDescription;
+    
+    //use promises to sync up asynchronous Mongodb queries
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,userName,resolve,reject);
+    });
+
+    //once the key is verified or reject, respond appropriatley
+    promise.then(
+        
+        function(result){
+            console.log('in promise');
+            var ideaName = req.body.ideaName
+            var ideaDescription = req.body.ideaDescription;
+            //if the apikey is valid, create a new idea object
+            if(result.isvalid){
+
+                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: result.userid}, function(err, newIdea){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        res.send('idea created');
+                    }
+                });
+                console.log('promise done');
+            }
+
+            //if the key is not valid, return an error message
+            else{
+                console.log('not valid');
+            }
+        
+    },
+    function(error){
+        console.log('error');
+    });
 
 
-    var isValidKey = verify.verifyKey(key, userName);
+    /**
+     * This is the original implementation of key verification before promises were implemented
+     * 
+    verify.verifyKey(key, userName,req,res, function(req,res, isValidKey){
+    
+        var ideaName = req.body.ideaName
+        var ideaDescription = req.body.ideaDescription;
+         //if the apikey is valid, create a new idea object
+        if(isValidKey.isvalid){
+
+            Idea.create({title: ideaName, initialDescription: ideaDescription, owner: isValidKey.userid}, function(err, newIdea){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    res.send('idea created');
+                }
+            })
+        }
+
+        //if the key is not valid, return an error message
+        else{
+            console.log('not valid');
+        }
+
+    });
+    */
+
 
     
 
-    //if the apikey is valid, create a new idea object
-    if(isValidKey.isvalid){
-
-        Idea.create({title: ideaName, initialDescription: ideaDescription, owner: objectId(isValidKey.userid)}, function(err, newIdea){
-            if(err){
-                console.log(err);
-            }
-            else{
-                res.send('idea created');
-            }
-        })
-    }
-
-    //if the key is not valid, return an error message
-    else{
-
-    }
+   
 }
 
 /**
@@ -97,20 +152,34 @@ exports.getAllIdeas = function(req, res){
     var key = req.params.apiKey;
     var userName = req.params.userID;
 
-    var isValidKey = verify.verifyKey(key,userName);
 
-    if(isValidKey.isvalid){
-        var jsonResponse =
-            Idea.find({owner: objectId(isValidKey.userid)}, function(err, ideas){
-                if(err){
-                    console.log(err);
-                }
-                else{
-                    console.log(ideas);
-                    res.send(jsonResponse);
-                }
-            });
+
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,userName,resolve,reject);
+    });
+
+    //once the key is verified or reject, respond appropriatley
+    promise.then(
         
+        function(result){
 
-    }
+            if(result.isvalid){
+                Idea.find({owner: result.userid}, function(err, ideas){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        res.send(ideas);
+                    }
+                })
+        
+            }
+        },
+        function(error){
+            console.log(error);
+        }
+
+    );
+
+    
 }

@@ -32,22 +32,22 @@ exports.issue_key = function(req, res){
                         //if there are no api keys currently assigned to the user, then create and issue a new one
                         else if(existingKey == null){
 
-                            apiKey = rand.generate(32);
+                            apiKey = rand.generate(12);
                             //hash the apiKey and store it in mongo (or should we store the apikey and respond with the hash?)
-                            bcrypt.hash(apiKey, 10, function(err, apiHash){
+                            bcrypt.hash(apiKey, 4, function(err, apiHash){
                                 if(err){
                                     console.log(err);
         
                                 }
                                 else{
-                                    //create the mongo key document with the key value and a reference to the user that will be using the apiKey hash
-                                    Key.create({keyID: apiKey, ownedBy: result._id}, function(err, key){
+                                    //create the mongo key document with the key hash and a reference to the user that will be using the apiKey 
+                                    Key.create({keyID: apiHash, ownedBy: result._id}, function(err, key){
                                         if(err){
                                             console.log(err);
                                         }
                                         else{
-                                            //send the user the hashed apiKey
-                                            var jsonResponse = {loginSuccess: true, yourKey: apiHash};
+                                            //send the user the apiKey
+                                            var jsonResponse = {loginSuccess: true, yourKey: apiKey};
                                             res.send(jsonResponse);
                                             
                                         }
@@ -60,25 +60,42 @@ exports.issue_key = function(req, res){
                         
                         //if there is already an apiKey, update it its expiration time and return it
                         else{
-                            var dat = new Date();
-                            dat = Date.now();
-                            existingKey.createdAt = dat;
-                            existingKey.save(function(err){
-                                if(err){
-                                    console.log(err);
-                                }
-                            });
+                            
 
-                            //hash the key and send the hash to the user
-                            bcrypt.hash(existingKey.keyID, 10, function(err, apiHash){
+                            var newKey = rand.generate(12);
+                            
+                           
+
+                            //hash the key and send the key to the user while storing the hash
+                            bcrypt.hash(newKey, 4, function(err, apiHash){
                                 if(err){
                                     console.log(err);
                                 }
                                 else{
-                                    var jsonResponse = {loginSuccess: true, yourKey: apiHash}; 
-                                    res.send(jsonResponse);
+
+                                    //grab the current date
+                                    var dat = new Date();
+                                    dat = Date.now();
+
+                                    //reset the date and key value
+                                    existingKey.createdAt = dat;
+                                    existingKey.keyID = apiHash;
+
+                                    existingKey.save(function(err){
+                                        if(err){
+                                            console.log(err);
+                                        }
+                                        else{
+                                            var jsonResponse = {loginSuccess: true, yourKey: newKey}; 
+                                            res.send(jsonResponse);
+                                        }
+                                    });
+                                    
                                 }
                             });
+                            
+
+                            
                         
 
                         }

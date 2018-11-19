@@ -18,11 +18,13 @@ class App extends Component {
     //otherwise the methods will reference the wrong 'this' object
     this.saveApiKey = this.saveApiKey.bind(this);
     this.getApiKey = this.getApiKey.bind(this);
+    this.checkLogin = this.checkLogin.bind(this);
     //this.changeScreen = this.changeScreen.bind(this);
     //this.changeRoute = this.changeRoute.bind(this);
 
     this.state ={
       apiHash: null,
+      loginSuccess: null,
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
     
@@ -30,17 +32,15 @@ class App extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <BrowserRouter>	  
-      <div>	 
-=======
       <BrowserRouter>	       
       <div>
->>>>>>> 97861c6aab8e79765e0425fd12ea8e726ec815f6
         <Route exact path="/" component={FullPage} />	
-        <Route path="/login" component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} />} />	
+        <Route path="/login" 
+          component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
+                                      checkLogin={this.checkLogin.bind(this)}/>} 
+        />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>
-        <Route path="/dashboard" component={Dashboard} />	
+        {this.state.loginSuccess && <Route path="/dashboard" component={Dashboard} />}
       </div>	
      </BrowserRouter>	
       
@@ -61,6 +61,17 @@ class App extends Component {
   getApiKey(){
     return this.state.apiHash;
   }
+
+  checkLogin(response){
+    if(response){
+      this.setState({loginSuccess: true})
+      console.log(this.state.loginSuccess);
+    }   
+    else {
+      this.setState({loginSuccess: false});
+      console.log(this.state.loginSuccess);
+    }
+   }
 
   /*
   changeScreen(screenName){

@@ -83,6 +83,7 @@ class App extends Component {
     console.log(screenName);
     this.setState({currentScreen: screens[screenName]}); 
   }
+  */
 }
 
 export default App;

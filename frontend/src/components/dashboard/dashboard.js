@@ -1,10 +1,16 @@
+/*
+    LoginScreen: Manages the output for the RegisterBox 
+                 the LoginBox. 
+*/
 
+import './dashboard.css';
 import React, { Component } from 'react';
 import { 
     Container, Button,Col, Row, Modal, 
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
+import HeaderAppBar from '../AppBar';
 
 
 class Dashboard extends Component{
@@ -33,19 +39,16 @@ class Dashboard extends Component{
 
     render(){
         return(
-            <div>
-                <Container className="dashboard">
-                    <Row>   
-                        <Col>
+            <React.Fragment>
+                <div className="h-100 container-fluid">
+                    <Row className="h-100">
+                        <Col className="h-100 d-flex align-items-center justify-content-center">
                             <Button onClick = {this.toggle}>{this.props.buttonLabel} Add an Idea </Button>
-                        </Col>
-                        <Col>
-                            <Button onClick = {(event) => this.handleCanvasesClick(event)}> Canvases </Button>
+                            <Button onClick = {(event) => this.handleCanvasesClick(event)}> Course </Button>
                         </Col>
                     </Row>
-                    
                     {this.state.pageView}
-                </Container>
+                </div>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>New Idea</ModalHeader>
@@ -57,7 +60,6 @@ class Dashboard extends Component{
                             <Input
                                 type="text"
                                 id="ideaTitle"
-                                value = {this.state.ideaTitle}
                                 placeholder="Sweaters for Snakes"
                             />
                             </FormGroup>
@@ -66,9 +68,8 @@ class Dashboard extends Component{
                             <FormGroup>
                             <Label>Idea Description</Label>
                             <Input
-                                type="text"
+                                type="textarea"
                                 id="ideaDes"
-                                value={this.state.ideaDes}
                                 placeholder="Snakes get cold too, we will give them a sweater!"
                             />
                             </FormGroup>
@@ -76,11 +77,11 @@ class Dashboard extends Component{
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={this.toggle}>Save Idea</Button>{' '}
-                    <Button color="secondary" onClick={this.toggle}>Discard Idea</Button>
+                    <Button color="success" onClick={this.toggle}>Save Idea</Button>{' '}
+                    <Button color="danger" onClick={this.toggle}>Discard Idea</Button>
                 </ModalFooter>
                 </Modal>
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom'	
 import LoginBox from './components/accounts/loginBox';	
 import RegisterBox from './components/accounts/registerBox';	
-import FullPage from './splash.js';
+import FullPage from './components/splashScreen/splash';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
 
@@ -83,7 +83,6 @@ class App extends Component {
     console.log(screenName);
     this.setState({currentScreen: screens[screenName]}); 
   }
-  */
 }
 
 export default App;

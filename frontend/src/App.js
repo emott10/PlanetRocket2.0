@@ -73,8 +73,6 @@ class App extends Component {
     }
    }
 
-  /*
-
   changeScreen(screenName){
     var screens = {
       login: <LoginScreen alterKey={this.saveApiKey.bind(this)}/>,

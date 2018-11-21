@@ -54,7 +54,9 @@ class RegisterBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <ListItem button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}>Submit</ListItem>
+              <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.handleClick(event)}>
+                <Button>Submit</Button> 
+              </ListItem>
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>
@@ -80,13 +82,25 @@ class RegisterBox extends Component{
 
     handleClick(event){
         var backendURL = ipAddress + ":3001/api/register";
+        var loginURL = ipAddress + ':3001/api/key';
+
         console.log("info before sending: " + this.state.username + " " + this.state.password);
+        var self = this;
         var payload = {
             "username": this.state.username,
             "password": this.state.password
         };
-        axios.post(backendURL, payload).then(function(response) {
+        axios.post(backendURL, payload)
+        .then((response) => {
             console.log(response);
+            return axios.post(loginURL, payload);
+        })
+        .then((response) => {
+          self.props.newKey(response.data.yourKey);
+          self.props.checkLogin(response.data.loginSuccess);
+        })
+        .catch((err) => {
+          console.log(err);
         });
     }
 }

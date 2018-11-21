@@ -56,7 +56,9 @@ class LoginBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <ListItem button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}> Submit </ListItem>
+              <ListItem button component={Link} to="/dashboard" type="submit" onClick={(event) => this.handleClick(event)}> 
+                <Button>Submit</Button> 
+              </ListItem>
               <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
             </Form>
           </Container>
@@ -87,7 +89,8 @@ class LoginBox extends Component{
       };
       
       //the post request and response are handled here
-      axios.post(loginURL, payload).then(function(response) {
+      axios.post(loginURL, payload)
+      .then((response) => {
         //set the app state APIHash value to our received apiHAsh
         self.props.newKey(response.data.yourKey);  
         self.props.checkLogin(response.data.loginSuccess);

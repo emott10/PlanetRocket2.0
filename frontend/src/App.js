@@ -6,6 +6,7 @@ import RegisterBox from './components/accounts/registerBox';
 import FullPage from './splash.js';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
+import PromptBox from './components/canvases/bmcCourse/promptBox';
 
 
 
@@ -39,8 +40,10 @@ class App extends Component {
           component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
                                       checkLogin={this.checkLogin.bind(this)}/>} 
         />	
-        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>
+        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
+                                                              checkLogin={this.checkLogin.bind(this)} />}/>
         {this.state.loginSuccess && <Route path="/dashboard" component={Dashboard} />}
+        <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
       </div>	
      </BrowserRouter>	
       

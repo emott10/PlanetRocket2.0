@@ -22,7 +22,7 @@ class Splash extends React.Component{
   render() {
     let options = {
       sectionClassName:     'section',
-      anchors:              ['passion', 'process', 'success'],
+      anchors:              ['passion', 'process', 'succeed'],
       navigation:           true,
       sectionPaddingTop:    '100px',
       arrowNavigation:      true
@@ -36,39 +36,49 @@ class Splash extends React.Component{
 
         <SectionsContainer {...options}>
           <Section id="page1">
-            <Container className="h-100">              
-              <Row className="h-75 align-items-center">
-                  <Col  className="splashHeaders" sm={{ size: 12}} md={{ size: 12, offset: 2}} lg={{ size: 8, offset: 3}}>
-                    <h1 className="splashText">Your Passion!</h1>
-                    <h3 className="splashText">Our course is the simplest way to go from idea to a filled out canvas in the shorest amount of time.</h3>
-                    <Button className="text-center" variant="extendedFab" color="primary" size="large" onClick={this.routeChange}>
-                      Join the Team!
-                    </Button>
+            <Container className="splashContainer h-100">              
+              <Row className="h-50">
+                  <Col  className="align-middle" sm={{ size: 12}} md={{ size: 12, offset: 0}} lg={{ size: 10, offset: 1}}>
+                    <h1 className="splashHeaders align-top" id="header1">Your Passion!</h1>
                   </Col>
+              </Row>
+              <Row className="align-items-cneter">
+                <Col sm={{ size: 12}} md={{ size: 12, offset: 0}} lg={{ size: 10, offset: 1}}>
+                  <h2>Our course is the simplest way to go from idea to a filled out canvas in the shorest amount of time.</h2>
+                  <br/><br/>
+                  <Button style={{fontSize: '30px'}} className="btn-success" variant="contained" size="large" onClick={this.routeChange}>
+                    Start
+                  </Button>
+                </Col>
               </Row>
             </Container>
           </Section>
           <Section id="page2">
-            <Container className="h-100">              
-              <Row className="h-75 align-items-center">
-                  <Col  className="splashHeaders" sm={{ size: 12}} md={{ size: 12, offset: 2}} lg={{ size: 8, offset: 3}}>
-                    <h1 className="splashText">Our Process!</h1>
-                    <h3 className="splashText">Learn, answer questions, and think deeply about your business. We will guide every step of the way.</h3>
-                    <Button className="text-center" variant="extendedFab" color="primary" size="large" onClick={this.routeChange}>
-                      Join the Team!
+            <Container className="splashContainer h-100">              
+              <Row className="h-100 align-items-center">
+                  <Col sm={{ size: 12}} md={{ size: 12, offset: 0}} lg={{ size: 8, offset: 3}}>
+                    <h1 className="splashHeaders">Our Process!</h1>
+                    <br/>
+                    <h2>Learn, answer questions, and think deeply about your business. We will guide every step of the way.</h2>
+                    <br/><br/>                                  
+                    <Button style={{fontSize: '30px'}} className="btn-success" variant="contained" size="large" onClick={this.routeChange}>
+                      Start
                     </Button>
                   </Col>
               </Row>
             </Container>
           </Section>
           <Section id="page3">
-            <Container className="h-100">              
-              <Row className="h-75 align-items-center">
-                  <Col  className="splashHeaders" sm={{ size: 12}} md={{ size: 12, offset: 2}} lg={{ size: 8, offset: 3}}>
-                    <h1 className="splashText">Together we Succeed!</h1>
-                    <h3 className="splashText">Go from world changing business idea to an actionable plan in a matter of minutes. For free.</h3>
-                    <Button className="text-center" variant="extendedFab" color="primary" size="large" onClick={this.routeChange}>
-                      Join the Team!
+            <Container className="splashContainer h-100">              
+              <Row className="h-100 align-items-center">
+                  <Col sm={{ size: 12}} md={{ size: 12, offset: 0 }} lg={{ size: 8, offset: 3}}>
+                    <h1 className="splashHeaders">Together, we Succeed!</h1>
+                    <br/>
+                    <br/>
+                    <h2>Go from world changing business idea to an actionable plan in a matter of minutes. For free.</h2>
+                    <br/><br/>
+                    <Button style={{fontSize: '30px'}} className="btn-success" variant="contained" size="large" onClick={this.routeChange}>
+                      Start
                     </Button>
                   </Col>
               </Row>

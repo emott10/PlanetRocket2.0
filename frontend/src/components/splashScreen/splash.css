@@ -5,25 +5,19 @@
   }*/
 
 #page1{
-  background-image: url("splash.svg");
+  background-image: url("screen_1.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #page2{
-  background-image: url("EarthSplash.svg");
+  background-image: url("screen_2.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #page3{
-  background-image: url("splash.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#page4{
-  background-image: url("human_splash.svg");
+  background-image: url("screen_3.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -33,10 +27,14 @@
 }
 
 .splashHeaders{
+  font-style: bold;
+  color: white;
+  font-size: 65px; 
+}
+
+.splashContainer{
+  color: white;
   text-align: center;
 }
 
-.splashHeaders{
-  color: white;
-}
 

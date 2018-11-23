@@ -183,3 +183,42 @@ exports.getAllIdeas = function(req, res){
 
     
 }
+
+exports.deleteIdea = function(req,res){
+    var key = req.params.apiKey;
+    var userName = req.params.userID;
+    var ideaId = req.params.ideaId;
+
+    //verify that the key belongs to the user making the request
+    let promise = new Promise(function(reject, resolve){
+
+        verify.verifyKey(key,userName,resolve, reject);
+
+    });
+
+
+
+    //delete the idea if the apikey and user are valid
+    promise.then(
+
+        function(result){
+
+            Idea.deleteOne({_id: objectId(ideaId)}, function(err){
+                if(err){
+                    console.log(err);
+                    res.send(false);
+                }
+                else{
+                    res.send(true);
+                }
+            })
+
+        },
+        function(error){
+
+            console.log(error);
+            res.send(false);
+
+        }
+    );
+}

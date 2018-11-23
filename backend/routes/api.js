@@ -14,12 +14,17 @@ router.post('/register', userFunctions.create_user);
 
 router.post('/key', keyFunctions.issue_key);
 
+
+//idea routes
 router.post('/idea/:apiKey/newIdea', ideaFunctions.createIdea);
 
 router.get('/idea/:apiKey/user/:userID/oneIdea/:ideaId', ideaFunctions.getIdea);
 
 router.get('/idea/:apiKey/userIdeas/:userID', ideaFunctions.getAllIdeas);
 
+router.delete('/idea/:apiKey/user/:userID/delete/:ideaID', ideaFunctions.deleteIdea);
+
+//canvas routes
 router.post('/canvas/:apiKey/newCanvas', canvasFunctions.createCanvas );
 
 router.get('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctions.getCanvas);

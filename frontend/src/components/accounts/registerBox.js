@@ -48,14 +48,14 @@ class RegisterBox extends Component{
                     type="password"
                     name="password"
                     id="password"
-                    onChange = { this.handlePasswordChange}
+                    onChange = {this.handlePasswordChange}
                     value={this.state.password}
                     placeholder="********"
                   />
                 </FormGroup>
               </Col>
               <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.handleClick(event)}>
-                <Button>Submit</Button> 
+                <Button>Submit</Button>
               </ListItem>
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
@@ -85,19 +85,22 @@ class RegisterBox extends Component{
         var loginURL = ipAddress + ':3001/api/key';
 
         console.log("info before sending: " + this.state.username + " " + this.state.password);
+        
+        //defining self to use prop methods
         var self = this;
+
         var payload = {
             "username": this.state.username,
             "password": this.state.password
         };
         axios.post(backendURL, payload)
         .then((response) => {
-            console.log(response);
-            return axios.post(loginURL, payload);
+          console.log(response);
+          return axios.post(loginURL, payload)
         })
         .then((response) => {
-          self.props.newKey(response.data.yourKey);
-          self.props.checkLogin(response.data.loginSuccess);
+          self.props.newKey(response.data.yourKey);  
+        self.props.checkLogin(response.data.loginSuccess);
         })
         .catch((err) => {
           console.log(err);

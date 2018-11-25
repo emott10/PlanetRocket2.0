@@ -50,7 +50,7 @@ class LoginBox extends Component{
                     type="password"
                     name="password"
                     id="password"
-                    onChange = { this.handlePasswordChange}
+                    onChange = {this.handlePasswordChange}
                     value={this.state.password}
                     placeholder="********"
                   />

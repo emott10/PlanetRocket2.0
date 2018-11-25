@@ -12,8 +12,7 @@ class PromptBox extends Component{
         this.child = React.createRef();
         this.state={
             promptView:[], 
-            promptSegment: '',           
-
+            promptSegment: '',   
             //okay so this is going to be a bitch. 
             //1 do I want it to be a bunch of components? or maybe I want to render things based on whats happening?
             //Okay so I wanty this to be one component. that is going to switch out messages depending on where we are
@@ -30,7 +29,7 @@ class PromptBox extends Component{
             this.setState({promptView: <CustomerSegment changeSegment={this.changeSegment.bind(this)}/>});
         }
     }
-    
+
     changeSegment(segment){
         this.setState({promptView: segment});
     }   

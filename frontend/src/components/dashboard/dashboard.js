@@ -3,7 +3,7 @@
                  the LoginBox. 
 */
 
-import './dashboard.css';
+//import './dashboard.css';
 import React, { Component } from 'react';
 import { 
     Container, Button,Col, Row, Modal, 
@@ -89,7 +89,7 @@ class Dashboard extends Component{
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="success" onClick={this.toggle}>Save Idea</Button>{' '}
+                    <Button color="success" onClick={this.toggle}>Save Idea</Button>
                     <Button color="danger" onClick={this.toggle}>Discard Idea</Button>
                 </ModalFooter>
                 </Modal>

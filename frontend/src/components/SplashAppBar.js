@@ -79,7 +79,7 @@ const styles = theme => ({
   },
 });
 
-class HeaderAppBar extends React.Component {
+class SplashHeaderAppBar extends React.Component {
   state = {
     open: false,
   };
@@ -154,9 +154,9 @@ class HeaderAppBar extends React.Component {
   }
 }
 
-HeaderAppBar.propTypes = {
+SplashHeaderAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(HeaderAppBar);
+export default withStyles(styles, { withTheme: true })(SplashHeaderAppBar);

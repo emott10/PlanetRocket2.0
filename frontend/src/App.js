@@ -63,7 +63,6 @@ class App extends Component {
       user: username
     
     });
-   
 
     
      // going to handle changing screens differently

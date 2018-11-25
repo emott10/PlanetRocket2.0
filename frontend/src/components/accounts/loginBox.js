@@ -3,31 +3,52 @@ import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from "react-router-dom";
-import { Route, Redirect } from 'react-router';
+import { Route, Redirect, withRouter } from 'react-router';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 import {
   Container, Col, Form,
   FormGroup, Label, Input,
-  Button,
+  Button, Alert
 } from 'reactstrap';
 
 class LoginBox extends Component{
     constructor(props){
         super(props);
         this.state={
-            username:'',
-            password:'',
+            username: null,
+            password: null,
             loginStatus:'',
+            noUsername: false,
+            noPassword: false,
+            incorrectLogin: false
         }
 
         this.handleClick = this.handleClick.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-      }
-
+        this.onDismiss = this.onDismiss.bind(this);
+    }
+    
+    onDismiss() {
+      this.setState({ 
+        noPassword: false,
+        noUsername: false,
+        incorrectLogin: false
+       });
+    }
     render() {
         return (
+          
           <Container className="LoginBox">
+          <Alert color="danger" isOpen={this.state.noPassword} toggle={this.onDismiss}>
+            Please enter in a password
+          </Alert>
+          <Alert color="danger" isOpen={this.state.noUsername} toggle={this.onDismiss}>
+            Please enter in a username
+          </Alert>
+          <Alert color="danger" isOpen={this.state.incorrectLogin} toggle={this.onDismiss}>
+            Incorrect username or password
+          </Alert>
             <h2>Login here</h2>
             <Form className="form">
               <Col>
@@ -55,7 +76,7 @@ class LoginBox extends Component{
                   />
                 </FormGroup>
               </Col>
-              <ListItem button component={Link} to="/dashboard" onClick = {(event) => this.handleClick(event)}> Submit </ListItem>
+              <Button onClick = {this.handleClick}> Submit </Button>
               <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
             </Form>
           </Container>
@@ -73,7 +94,21 @@ class LoginBox extends Component{
     }
 
    handleClick(event){
-      //get the url to send our post request to
+
+    if(this.state.username === null || this.state.username === ""){
+      this.setState({
+        noUsername: true
+      });
+    }
+
+    else if(this.state.password === null || this.state.password === ""){
+      this.setState({
+        noPassword: true
+      });
+    }
+
+    else{
+     //get the url to send our post request to
       var loginURL = ipAddress + ':3001/api/key';
 
       //define self so that we can access prop methods from within the axios response
@@ -87,10 +122,23 @@ class LoginBox extends Component{
       
       //the post request and response are handled here
       axios.post(loginURL, payload).then(function(response) {
-        //set the app state APIHash value to our received apiHAsh
-        self.props.newKey(response.data.yourKey, self.state.username);  
-        self.props.checkLogin(response.data.loginSuccess);
+
+        if(response.data.loginSuccess) {
+          //set the app state APIHKey value to our received apiKey
+          self.props.newKey(response.data.yourKey, self.state.username);  
+          self.props.checkLogin(response.data.loginSuccess);
+          self.props.history.push('/dashboard');
+        }
+        else{
+          self.setState({
+            incorrectLogin: true
+          });
+        }
+
       });
-   }
+    }
+  }
 }
-export default LoginBox;
+
+const LoginWithRouter = withRouter(LoginBox);
+export default LoginWithRouter ;

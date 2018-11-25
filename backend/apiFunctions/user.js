@@ -15,6 +15,8 @@ exports.create_user = function(req, res){
     //see if the username is already taken
     User.findOne({username: postUsername}, function(err, result){
         if(err){
+            var jsonResponse = {userCreated: false, message: err};
+            res.send(jsonResponse);
             console.log(err);
         }
         else{

@@ -40,11 +40,12 @@ class App extends Component {
           component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
                                       checkLogin={this.checkLogin.bind(this)}/>} 
         />	
-        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>
+        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} 
+                                                              checkLogin={this.checkLogin.bind(this)}/>}/>
         {this.state.loginSuccess && 
-          <Route path="/dashboard" render={() => 
+          <Route path="/dashboard" component={() => 
               <Dashboard  userKey={this.state.apiKey} user={this.state.user}
-                />} 
+              />} 
           />
         }
       </div>	

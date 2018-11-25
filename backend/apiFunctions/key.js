@@ -7,11 +7,12 @@ exports.issue_key = function(req, res){
     var postUsername = req.body.username;
     var postPassword = req.body.password;
 
+    var jsonResponse = {loginSuccess: false, yourKey: null }
     //see if the username matches with a stored user
     User.findOne({username:postUsername}, function(err, result){
         if(err){
             console.log(err);
-            var jsonResponse = {loginSuccess: false, yourKey: null };
+            
             res.send(jsonResponse);
         }
         else if(result === null){
@@ -47,7 +48,7 @@ exports.issue_key = function(req, res){
                                         }
                                         else{
                                             //send the user the apiKey
-                                            var jsonResponse = {loginSuccess: true, yourKey: apiKey};
+                                            jsonResponse = {loginSuccess: true, yourKey: apiKey};
                                             res.send(jsonResponse);
                                             
                                         }
@@ -110,6 +111,7 @@ exports.issue_key = function(req, res){
                 //otherwise, return an error
                 else{
                     console.log('passwords do not match');
+                    res.send(jsonResponse);
                 }
             })
         }

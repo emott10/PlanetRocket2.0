@@ -57,7 +57,7 @@ exports.getIdea = function(req, res){
  * 
  * @param {*} req 
  * @param {*} res 
- * @param {String} req.body.apiKey - the user's current apiKey
+ * @param {String} req.params.apiKey - the user's current apiKey
  * @param {String} req.body.userName - the current user's username
  * @param {String} req.body.ideaName - the new idea's name
  * @param {String} req.body.ideaDescription - the idea's description
@@ -66,7 +66,7 @@ exports.getIdea = function(req, res){
  */
 exports.createIdea = function(req, res){
     var key = req.params.apiKey;
-    var userName = req.body.userName;
+    var userName = req.params.userID;
     
     //use promises to sync up asynchronous Mongodb queries
     let promise = new Promise(function(resolve, reject){

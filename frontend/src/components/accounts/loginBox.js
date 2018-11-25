@@ -88,7 +88,7 @@ class LoginBox extends Component{
       //the post request and response are handled here
       axios.post(loginURL, payload).then(function(response) {
         //set the app state APIHash value to our received apiHAsh
-        self.props.newKey(response.data.yourKey);  
+        self.props.newKey(response.data.yourKey, self.state.username);  
         self.props.checkLogin(response.data.loginSuccess);
       });
    }

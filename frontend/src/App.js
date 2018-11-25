@@ -23,7 +23,8 @@ class App extends Component {
     //this.changeRoute = this.changeRoute.bind(this);
 
     this.state ={
-      apiHash: null,
+      apiKey: null,
+      user: null,
       loginSuccess: null,
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
@@ -40,7 +41,12 @@ class App extends Component {
                                       checkLogin={this.checkLogin.bind(this)}/>} 
         />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} />}/>
-        {this.state.loginSuccess && <Route path="/dashboard" component={Dashboard} />}
+        {this.state.loginSuccess && 
+          <Route path="/dashboard" render={() => 
+              <Dashboard  userKey={this.state.apiKey} user={this.state.user}
+                />} 
+          />
+        }
       </div>	
      </BrowserRouter>	
       
@@ -50,8 +56,13 @@ class App extends Component {
     );
   }
 
-  saveApiKey(apiKey){
-    this.setState({apiHash: apiKey});
+  saveApiKey(key, username){
+    this.setState({
+      apiKey: key,
+      user: username
+    
+    });
+   
 
     
      // going to handle changing screens differently

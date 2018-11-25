@@ -16,7 +16,7 @@ router.post('/key', keyFunctions.issue_key);
 
 
 //idea routes
-router.post('/idea/:apiKey/newIdea', ideaFunctions.createIdea);
+router.post('/idea/:apiKey/user/:userID/newIdea', ideaFunctions.createIdea);
 
 router.get('/idea/:apiKey/user/:userID/oneIdea/:ideaId', ideaFunctions.getIdea);
 

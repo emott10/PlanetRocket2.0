@@ -3,7 +3,6 @@ import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from "react-router-dom";
-import { Route, Redirect } from 'react-router';
 //used tutorial at: https://medium.com/technoetics/create-basic-login-forms-using-create-react-app-module-in-reactjs-511b9790dede
 import {
   Container, Col, Form,

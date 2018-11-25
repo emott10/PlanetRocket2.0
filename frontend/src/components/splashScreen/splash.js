@@ -29,7 +29,7 @@ class Splash extends React.Component{
   }
   
   routeChange(){
-    this.props.history.push("/dashboard");
+    this.props.history.push("/register");
   }
 
   render() {

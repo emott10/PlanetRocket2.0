@@ -83,7 +83,7 @@ exports.createIdea = function(req, res){
             //if the apikey is valid, create a new idea object
             if(result.isvalid){
 
-                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: result.userid}, function(err, newIdea){
+                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: objectId(result.userid)}, function(err, newIdea){
                     if(err){
                         console.log(err);
                     }

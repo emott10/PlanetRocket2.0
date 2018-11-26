@@ -1,9 +1,3 @@
-
-/*
-  LoginScreen: Manages the output for the RegisterBox 
-    the LoginBox. 
-*/
-
 import './dashboard.css';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -13,6 +7,8 @@ import {
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
 import DbHeaderAppBar from '../DashboardAppBar';
+import axios from 'axios';
+import ipAddress from '../../config/ipAddress';
 
 const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}
 
@@ -39,6 +35,18 @@ class Dashboard extends Component{
       });
       
     }
+    handleIdeaNameChange(event){
+        this.setState({
+            ideaTitle: event.target.value
+        });
+    }
+
+    handleIdeaDescriptionChange(event){
+        this.setState({
+            ideaDes: event.target.value
+        });
+    }
+
 
     createIdea(event){
         var createIdeaUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/user/' + this.props.user + '/newIdea';
@@ -84,6 +92,7 @@ render(){
                             <FormGroup>
                             <Label>Title</Label>
                             <Input
+                                onChange={this.handleIdeaNameChange}
                                 type="text"
                                 id="ideaTitle"
                                 placeholder="Sweaters for Snakes"
@@ -94,6 +103,7 @@ render(){
                             <FormGroup>
                             <Label>Idea Description</Label>
                             <Input
+                                onChange={this.handleIdeaDescriptionChange}
                                 type="textarea"
                                 id="ideaDes"
                                 placeholder="Snakes get cold too, we will give them a sweater!"
@@ -103,7 +113,7 @@ render(){
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="success" onClick={this.toggle}>Save Idea</Button>{' '}
+                    <Button color="success" onClick={this.createIdea}>Save Idea</Button>{' '}
                     <Button color="danger" onClick={this.toggle}>Discard Idea</Button>
                 </ModalFooter>
             </Modal>

@@ -53,13 +53,13 @@ class RegisterBox extends Component{
             <Form className="form">
               <Col>
                 <FormGroup>
-                  <Label>Email</Label>
+                  <Label>Username</Label>
                   <Input
                     type="text"
                     id="username"
                     onChange = {this.handleUsernameChange}
                     value = {this.state.username}
-                    placeholder="myemail@email.com"
+                    placeholder="Your Unique Username"
                   />
                 </FormGroup>
               </Col>

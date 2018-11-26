@@ -26,15 +26,35 @@ class Dashboard extends Component{
             ideaTitle:'',
             ideaDes:'',
         }
-
         this.handleCanvasesClick = this.handleCanvasesClick.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.handleIdeaNameChange = this.handleIdeaNameChange.bind(this);
+        this.handleIdeaDescriptionChange = this.handleIdeaDescriptionChange.bind(this);
+        this.createIdea = this.createIdea.bind(this);
+    }
+    
+    toggle() {
+      this.setState({
+        modal: !this.state.modal
+      });
+      
     }
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
+    createIdea(event){
+        var createIdeaUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/user/' + this.props.user + '/newIdea';
+
+        var self = this;
+
+        var payload = {
+            "ideaName":this.state.ideaTitle,
+            "ideaDescription": this.state.ideaDes
+        }
+
+        axios.post(createIdeaUrl, payload).then((response) => {
+            console.log(response.data);
+
+            self.toggle();
+        } );
     }
 
     handleCanvasesClick(event){

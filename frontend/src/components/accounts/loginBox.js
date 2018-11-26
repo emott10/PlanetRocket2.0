@@ -54,7 +54,7 @@ class LoginBox extends Component{
             <Form className="form">
               <Col>
                 <FormGroup>
-                  <Label>Email</Label>
+                  <Label>Username</Label>
                   <Input
                     type="text"
                     id="username"

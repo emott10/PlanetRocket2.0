@@ -83,7 +83,7 @@ exports.createIdea = function(req, res){
             //if the apikey is valid, create a new idea object
             if(result.isvalid){
 
-                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: objectId(result.userid)}, function(err, newIdea){
+                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: objectId(result.userId)}, function(err, newIdea){
                     if(err){
                         console.log(err);
                     }
@@ -162,20 +162,23 @@ exports.getAllIdeas = function(req, res){
     promise.then(
         
         function(result){
+            console.log(result.userId)
 
             if(result.isvalid){
-                Idea.find({owner: result.userid}, function(err, ideas){
+                Idea.find({owner: objectId(result.userId)}, function(err, ideas){
                     if(err){
                         console.log(err);
                     }
                     else{
+
                         res.send(ideas);
                     }
-                })
+                });
         
             }
         },
         function(error){
+            res.send(false);
             console.log(error);
         }
 

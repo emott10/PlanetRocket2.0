@@ -76,11 +76,9 @@ class App extends Component {
   checkLogin(response){
     if(response){
       this.setState({loginSuccess: true})
-      console.log(this.state.loginSuccess);
     }   
     else {
       this.setState({loginSuccess: false});
-      console.log(this.state.loginSuccess);
     }
    }
 

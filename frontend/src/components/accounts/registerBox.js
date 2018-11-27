@@ -70,13 +70,17 @@ class RegisterBox extends Component{
                     type="password"
                     name="password"
                     id="password"
-                    onChange = { this.handlePasswordChange}
+                    onChange = {this.handlePasswordChange}
                     value={this.state.password}
                     placeholder="********"
                   />
                 </FormGroup>
               </Col>
-              <Button onClick = { this.handleClick}>Submit</Button>
+
+              <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.handleClick(event)}>
+                <Button>Submit</Button>
+              </ListItem>
+
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>
@@ -116,11 +120,31 @@ class RegisterBox extends Component{
       }
       else{
         var backendURL = ipAddress + ":3001/api/register";
+        var loginURL = ipAddress + ':3001/api/key';
+
         console.log("info before sending: " + this.state.username + " " + this.state.password);
+        
+        //defining self to use prop methods
+        var self = this;
+
         var payload = {
             "username": this.state.username,
             "password": this.state.password
         };
+/*
+Levi: example of multiple axios .then calls
+        axios.post(backendURL, payload)
+        .then((response) => {
+          console.log(response);
+          return axios.post(loginURL, payload)
+        })
+        .then((response) => {
+          self.props.newKey(response.data.yourKey);  
+        self.props.checkLogin(response.data.loginSuccess);
+        })
+        .catch((err) => {
+          console.log(err);
+*/
         axios.post(backendURL, payload).then(function(response) {
           console.log(response.data);
           if(response.data.userCreated){
@@ -130,8 +154,7 @@ class RegisterBox extends Component{
             self.setState({
               usernameTaken: true
             });
-          }
-            
+          }            
         });
       }
     }

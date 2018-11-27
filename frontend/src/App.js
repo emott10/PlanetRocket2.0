@@ -6,6 +6,8 @@ import RegisterBox from './components/accounts/registerBox';
 import FullPage from './components/splashScreen/splash';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
+import PromptBox from './components/canvases/bmcCourse/promptBox';
+import HFTPromptBox from './components/canvases/hftCourse/hftPromptBox';
 
 
 
@@ -40,14 +42,17 @@ class App extends Component {
           component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
                                       checkLogin={this.checkLogin.bind(this)}/>} 
         />	
-        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)} 
-                                                              checkLogin={this.checkLogin.bind(this)}/>}/>
+        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
+                                                              checkLogin={this.checkLogin.bind(this)} />}/>
         {this.state.loginSuccess && 
           <Route path="/dashboard" component={() => 
               <Dashboard  userKey={this.state.apiKey} user={this.state.user}
               />} 
           />
-        }
+        }        
+        <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
+        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
+        
       </div>	
      </BrowserRouter>	
       

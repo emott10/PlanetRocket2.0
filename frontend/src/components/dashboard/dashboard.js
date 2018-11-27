@@ -1,7 +1,14 @@
 
+
 /*
   LoginScreen: Manages the output for the RegisterBox 
     the LoginBox. 
+    
+                    <Button color="success" onClick={this.toggle}>Save Idea</Button>
+                    <Button color="danger" onClick={this.toggle}>Discard Idea</Button>
+                </ModalFooter>
+                </Modal>
+            </React.Fragment>
 */
 
 import './dashboard.css';
@@ -12,6 +19,9 @@ import {
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
+import { ListItem } from '@material-ui/core';
+import { Link } from "react-router-dom";
+import HeaderAppBar from '../AppBar';
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import DbHeaderAppBar from './DashboardAppBar';
@@ -46,8 +56,7 @@ class Dashboard extends Component{
         this.setState({
             ideaTitle: event.target.value
         });
-    }
-
+      
     handleIdeaDescriptionChange(event){
         this.setState({
             ideaDes: event.target.value
@@ -74,6 +83,11 @@ class Dashboard extends Component{
 
 
 render(){
+  var btnStyle = {
+            backgroundColor: 'black',
+            color: 'white',
+        };
+  
     return(
         <div>
             <DbHeaderAppBar />
@@ -84,6 +98,11 @@ render(){
                         <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
+                        </Col>
+                        <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}> 
+                             <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)} style={btnStyle}>
+                                  Canvases 
+                             </ListItem>
                         </Col>
                     </Col>
                 </Row>
@@ -111,6 +130,8 @@ render(){
                             <FormGroup>
                             <Label>Idea Description</Label>
                             <Input
+
+      //Levi: Don't know if this line is good?
                                 onChange={this.handleIdeaDescriptionChange}
                                 type="textarea"
                                 id="ideaDes"

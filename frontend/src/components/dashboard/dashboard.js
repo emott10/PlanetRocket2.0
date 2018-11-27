@@ -78,16 +78,18 @@ render(){
         <div>
             <DbHeaderAppBar />
 
-            <Container style={style}>
-                <Row className="h-100">
-                    <Col className="h-100 d-flex align-items-center justify-content-center">
-                        <Button onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
-                    </Col>
-                    <Col className="h-100 d-flex align-items-center justify-content-center">
+            <Container >
+                <Row style={style}>
+                    <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
                         <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
+                        <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
+                            <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
+                        </Col>
                     </Col>
                 </Row>
+
                 {this.state.pageView}
+                
             </Container>
 
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

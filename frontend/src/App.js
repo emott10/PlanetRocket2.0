@@ -7,6 +7,7 @@ import FullPage from './splash.js';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
 import PromptBox from './components/canvases/bmcCourse/promptBox';
+import HFTPromptBox from './components/canvases/hftCourse/hftPromptBox';
 
 
 
@@ -44,6 +45,7 @@ class App extends Component {
                                                               checkLogin={this.checkLogin.bind(this)} />}/>
         {this.state.loginSuccess && <Route path="/dashboard" component={Dashboard} />}
         <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
+        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
       </div>	
      </BrowserRouter>	
       

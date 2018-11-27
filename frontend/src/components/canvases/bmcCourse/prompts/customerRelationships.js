@@ -18,10 +18,7 @@ class CustomerRelationships extends Component{
             customerInteraction: "",
             interactionCost: "",
 
-            //okay so this is going to be a bitch. 
-            //1 do I want it to be a bunch of components? or maybe I want to render things based on whats happening?
-            //Okay so I wanty this to be one component. that is going to switch out messages depending on where we are
-            //I need someting to keep track. Some kind of array? 
+           
         }
         this.setText = this.setText.bind(this);
         this.nextText = this.nextText.bind(this);
@@ -141,8 +138,8 @@ class CustomerRelationships extends Component{
     //details needs to change per thing.
     render() {   
         var btnStyle = {
-            position: 'absolute', 
-            bottom:500, 
+            position: 'relative', 
+            top:200, 
         }
         var h2Style ={
             background: '#4286f4',

@@ -6,6 +6,8 @@ import {
 } from 'reactstrap';
 import promptText from '../../../../config/promptText';
 import Dashboard from '../../../dashboard/dashboard';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from "react-router-dom";
 
 class CostStructure extends Component{
     constructor(props){
@@ -18,10 +20,7 @@ class CostStructure extends Component{
             costsInvolved: "",
             costStructure: "",
 
-            //okay so this is going to be a bitch. 
-            //1 do I want it to be a bunch of components? or maybe I want to render things based on whats happening?
-            //Okay so I wanty this to be one component. that is going to switch out messages depending on where we are
-            //I need someting to keep track. Some kind of array? 
+            
         }
         this.setText = this.setText.bind(this);
         this.nextText = this.nextText.bind(this);
@@ -162,12 +161,28 @@ class CostStructure extends Component{
         }
     }
 
+    setButton(){ 
+        var btnStyle = {
+            position: 'relative', 
+            top:200, 
+        }    
+        if(this.state.textNum + 1 > 5){
+            return(
+            <ListItem button component={Link} to="/dashboard" type="submit" onClick={(event) => this.nextText(event)}> 
+                <Button>Submit Course</Button> 
+            </ListItem>
+            )
+        }
+        else{
+            return(
+            <Button style={btnStyle} onClick = {(event) => this.nextText(event)}> {this.checkEnd()} </Button>
+            )
+        }
+    }
+
     //details needs to change per thing.
     render() {
-        var btnStyle = {
-            position: 'absolute', 
-            bottom:500, 
-        }
+        
         var h2Style ={
             background: '#4286f4',
             color: '#ffffff',
@@ -181,7 +196,7 @@ class CostStructure extends Component{
             </Row> 
                 <div> {this.setText()} </div>
             <Row className="btn">
-                <Button style={btnStyle} onClick = {(event) => this.nextText(event)}> {this.checkEnd()} </Button>
+                {this.setButton()}
             </Row>
           </Container>
         );

@@ -53,7 +53,7 @@ class Dashboard extends Component{
                             <Button onClick = {this.toggle}>{this.props.buttonLabel} Add an Idea </Button>
                         </Col>
                         <Col>
-                            <ListItem button component={Link} to="/canvas/bmccourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)} 
+                            <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)} 
                                       style={btnStyle}>
                                 Canvases 
                             </ListItem>

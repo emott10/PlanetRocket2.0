@@ -143,8 +143,8 @@ class ValuePropositions extends Component{
     //details needs to change per thing.
     render() {
         var btnStyle = {
-            position: 'absolute', 
-            bottom:500, 
+            position: 'relative', 
+            top:200, 
         }
         var h2Style ={
             background: '#4286f4',

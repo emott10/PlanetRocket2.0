@@ -56,7 +56,7 @@ class TargetResource extends Component{
                         that we suggest you extensively review. 
                     </Row>
                     <Row>
-                        <a href='https://en.wikipedia.org/wiki/Market_segmentation'> Target Demographic Resource </a>
+                        <a href='https://en.wikipedia.org/wiki/Key_demographic'> Target Demographic Resource </a>
                     </Row>
                 </FormGroup>
             <ListItem button onClick={this.submitButton.bind(this)}> 

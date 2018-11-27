@@ -57,7 +57,7 @@ exports.getIdea = function(req, res){
  * 
  * @param {*} req 
  * @param {*} res 
- * @param {String} req.body.apiKey - the user's current apiKey
+ * @param {String} req.params.apiKey - the user's current apiKey
  * @param {String} req.body.userName - the current user's username
  * @param {String} req.body.ideaName - the new idea's name
  * @param {String} req.body.ideaDescription - the idea's description
@@ -66,7 +66,7 @@ exports.getIdea = function(req, res){
  */
 exports.createIdea = function(req, res){
     var key = req.params.apiKey;
-    var userName = req.body.userName;
+    var userName = req.params.userID;
     
     //use promises to sync up asynchronous Mongodb queries
     let promise = new Promise(function(resolve, reject){
@@ -83,7 +83,7 @@ exports.createIdea = function(req, res){
             //if the apikey is valid, create a new idea object
             if(result.isvalid){
 
-                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: result.userid}, function(err, newIdea){
+                Idea.create({title: ideaName, initialDescription: ideaDescription, owner: objectId(result.userId)}, function(err, newIdea){
                     if(err){
                         console.log(err);
                     }
@@ -162,24 +162,67 @@ exports.getAllIdeas = function(req, res){
     promise.then(
         
         function(result){
+            console.log(result.userId)
 
             if(result.isvalid){
-                Idea.find({owner: result.userid}, function(err, ideas){
+                Idea.find({owner: objectId(result.userId)}, function(err, ideas){
                     if(err){
                         console.log(err);
                     }
                     else{
+                        console.log(ideas);
+
                         res.send(ideas);
                     }
-                })
+                });
         
             }
         },
         function(error){
+            res.send(false);
             console.log(error);
         }
 
     );
 
     
+}
+
+exports.deleteIdea = function(req,res){
+    var key = req.params.apiKey;
+    var userName = req.params.userID;
+    var ideaId = req.params.ideaId;
+
+    //verify that the key belongs to the user making the request
+    let promise = new Promise(function(reject, resolve){
+
+        verify.verifyKey(key,userName,resolve, reject);
+
+    });
+
+
+
+    //delete the idea if the apikey and user are valid
+    promise.then(
+
+        function(result){
+
+            Idea.deleteOne({_id: objectId(ideaId)}, function(err){
+                if(err){
+                    console.log(err);
+                    res.send(false);
+                }
+                else{
+                    res.send(true);
+                }
+            })
+
+        },
+        function(error){
+
+            console.log(error);
+            res.send(false);
+
+        }
+    );
 }

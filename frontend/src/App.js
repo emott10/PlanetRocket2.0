@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom'	
 import LoginBox from './components/accounts/loginBox';	
 import RegisterBox from './components/accounts/registerBox';	
-import FullPage from './splash.js';
+import FullPage from './components/splashScreen/splash';
 import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
 import PromptBox from './components/canvases/bmcCourse/promptBox';
@@ -25,7 +25,8 @@ class App extends Component {
     //this.changeRoute = this.changeRoute.bind(this);
 
     this.state ={
-      apiHash: null,
+      apiKey: null,
+      user: null,
       loginSuccess: null,
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
@@ -43,9 +44,15 @@ class App extends Component {
         />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
                                                               checkLogin={this.checkLogin.bind(this)} />}/>
-        {this.state.loginSuccess && <Route path="/dashboard" component={Dashboard} />}
+        {this.state.loginSuccess && 
+          <Route path="/dashboard" component={() => 
+              <Dashboard  userKey={this.state.apiKey} user={this.state.user}
+              />} 
+          />
+        }        
         <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
         <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
+        
       </div>	
      </BrowserRouter>	
       
@@ -55,8 +62,12 @@ class App extends Component {
     );
   }
 
-  saveApiKey(apiKey){
-    this.setState({apiHash: apiKey});
+  saveApiKey(key, username){
+    this.setState({
+      apiKey: key,
+      user: username
+    
+    });
 
     
      // going to handle changing screens differently
@@ -70,15 +81,11 @@ class App extends Component {
   checkLogin(response){
     if(response){
       this.setState({loginSuccess: true})
-      console.log(this.state.loginSuccess);
     }   
     else {
       this.setState({loginSuccess: false});
-      console.log(this.state.loginSuccess);
     }
    }
-
-  /*
 
   changeScreen(screenName){
     var screens = {
@@ -88,7 +95,6 @@ class App extends Component {
     console.log(screenName);
     this.setState({currentScreen: screens[screenName]}); 
   }
-  */
 }
 
 export default App;

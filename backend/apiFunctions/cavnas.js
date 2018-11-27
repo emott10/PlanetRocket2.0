@@ -9,6 +9,7 @@ var objectId = mongoose.Types.ObjectId;
  * @param {String} req.body.canvasName;
  * @param {String} req.body.ideaId;
  * @returns {Boolean}
+ * @description - the endpoint function that creates a canvas
  * 
  */
 exports.createCanvas = (req,res) => {
@@ -62,6 +63,16 @@ exports.createCanvas = (req,res) => {
     
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {String} req.params.apiKey
+ * @param {String} req.params.userID
+ * @param {String} req.params.canvasID
+ * @returns {Object} - returns either the requested canvas json object or a false boolean
+ * @description - the endpoint function for fetching a canvas
+ */
 exports.getCanvas = (req, res) => {
     var key = req.params.apiKey;
     var userName = req.params.userID;
@@ -104,6 +115,14 @@ exports.getCanvas = (req, res) => {
     
 }
 
+/**
+ * @param {*} req 
+ * @param {*} res 
+ * @param {String} req.params.apiKey
+ * @param {String} req.body.username
+ * @returns {boolean} - value indicating successful/unsuccessful update
+ * @description - endpoint function that updates an existing canvas
+ */
 exports.updateCanvas = (req, res) => {
 
     var key = req.body.apiKey;
@@ -147,9 +166,18 @@ exports.updateCanvas = (req, res) => {
     
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {String} req.params.apiKey
+ * @param {String} req.body.username
+ * @param {String} req.body.canvasName
+ * @returns {boolean} - value indicating successful/unsuccessful deletion
+ */
 exports.deleteCanvas = (req,res) => {
 
-    var key = req.body.apiHash;
+    var key = req.body.apiKey;
     var userName = req.body.username;
     let promise = new Promise(function(resolve, reject){
         verify.verifyKey(key,userName,resolve,reject);

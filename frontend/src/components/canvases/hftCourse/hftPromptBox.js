@@ -4,7 +4,7 @@ import {
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
-import TypeOfBusiness from './prompts/typeOfBusiness';
+import Welcome from './prompts/welcome';
 
 class HFTPromptBox extends Component{
     constructor(props){
@@ -25,8 +25,10 @@ class HFTPromptBox extends Component{
     componentDidMount(){
         if(this.state.promptSegment == '')
         {
-            this.setState({promptSegment: 'TypeOfBusiness'});
-            this.setState({promptView: <TypeOfBusiness changeSegment={this.changeSegment.bind(this)}/>});
+        	this.setState({promptSegment: 'Welcome'});
+        	this.setState({promptView: <Welcome changeSegment={this.changeSegment.bind(this)}/>});
+      //      this.setState({promptSegment: 'TypeOfBusiness'});
+      //      this.setState({promptView: <TypeOfBusiness changeSegment={this.changeSegment.bind(this)}/>});
         }
     }
 

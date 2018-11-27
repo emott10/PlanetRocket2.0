@@ -5,10 +5,10 @@ import {
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
 import promptText from './promptText';
-import TargetResource from './targetResource';
-import CustomerResource from './customerResource';
+import TypeOfBusiness from './typeOfBusiness';
 
-class TypeOfBusiness extends Component{
+
+class Welcome extends Component{
     constructor(props){
         super(props);
 
@@ -43,22 +43,8 @@ class TypeOfBusiness extends Component{
     };
     */
 
-    handleInputChange = (event) => {
-        if(event.target.id == "for-profit"){
-            this.setState({businessType: event.currentTarget.value});
-        }
-        else if(event.target.id == "non-profit"){
-            this.setState({businessType: event.currentTarget.value});
-        }
-    };
-
     submitButton = () => {
-        if(this.state.businessType === "for-profit"){
-            this.props.changeSegment(<CustomerResource changeSegment={this.props.changeSegment.bind(this)} />)
-        }
-        else{
-            this.props.changeSegment(<TargetResource changeSegment={this.props.changeSegment.bind(this)} />)
-        }
+            this.props.changeSegment(<TypeOfBusiness changeSegment={this.props.changeSegment.bind(this)} />)  
     }
 
     //details needs to change per thing.
@@ -78,19 +64,12 @@ class TypeOfBusiness extends Component{
             height: 450,
         }
         return (
-          <Container className="typeOfBusiness" style={conStyle}>      
+          <Container className="courseInfo" style={conStyle}>      
             <Row className="box" style={h2Style}>
-                <h2> Let's develop my idea into a </h2>
+                <h2>Welcome!</h2>
             </Row> 
             <Form>
-                <FormGroup>
-                    <Row> <input type="radio" name="business-type" id="non-profit" value="non-profit" onChange = {this.handleInputChange.bind(this)}/> 
-                        Non-profit
-                    </Row>
-                    <Row> <input type="radio" name="business-type" id="for-profit" value="for-profit" onChange = {this.handleInputChange.bind(this)}/> 
-                        For-profit
-                    </Row>
-                </FormGroup>
+				<h3> In this course you will develop your idea into a for-profit or non-profit and identify who you are targeting. </h3>
             <Button style={btnStyle} onClick = {(event) => this.submitButton(event)}> Continue </Button>
             </Form>
           </Container>
@@ -98,4 +77,4 @@ class TypeOfBusiness extends Component{
       }
 }
 
-export default TypeOfBusiness;
+export default Welcome;

@@ -71,12 +71,12 @@ class Customers extends Component{
         return (
           <Container className="typeOfBusiness" style={conStyle}>      
             <Row className="box" style={h2Style}>
-                <h2> Customers </h2>
+                <h2> Key Partners </h2>
             </Row> 
             <Form>
                 <FormGroup>
                     <Row> 
-                        Who are your customers?
+                        Who are you targeting?
                         <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
                     </Row>
                 </FormGroup>

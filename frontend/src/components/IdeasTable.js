@@ -11,6 +11,9 @@ import TablePagination from '@material-ui/core/TablePagination';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 import ipAddress from '../config/ipAddress';
+import { ListItem } from '@material-ui/core';
+import { Link } from "react-router-dom";
+
 
 const styles = theme => ({
   root: {
@@ -52,6 +55,10 @@ class IdeasTable extends React.Component {
     }
 
     render(){
+      var btnStyle = {
+            backgroundColor: 'black',
+            color: 'white',
+        };
         return (
             <div>
             <Paper className={this.props.root}>
@@ -71,7 +78,7 @@ class IdeasTable extends React.Component {
                         {row.title}
                         </TableCell>
                         <TableCell numeric>{row.initialDescription}</TableCell>
-                        <TableCell numeric> <Button> Course </Button></TableCell>
+                        <TableCell numeric> <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}>Take a course to find your target audience!</ListItem></TableCell>
                     </TableRow>
                     );
                 })}

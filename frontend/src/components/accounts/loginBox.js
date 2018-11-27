@@ -24,44 +24,6 @@ class LoginBox extends Component{
           incorrectLogin: false
       }
 
-    render() {
-        return (
-          <Container className="LoginBox">
-            <h2>Login here</h2>
-            <Form className="form">
-              <Col>
-                <FormGroup>
-                  <Label>Email</Label>
-                  <Input
-                    type="text"
-                    id="username"
-                    onChange = {this.handleUsernameChange}
-                    value = {this.state.username}
-                    placeholder="myusername"
-                  />
-                </FormGroup>
-              </Col>
-              <Col>
-                <FormGroup>
-                  <Label for="Password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="password"
-                    onChange = {this.handlePasswordChange}
-                    value={this.state.password}
-                    placeholder="********"
-                  />
-                </FormGroup>
-              </Col>
-              <ListItem button component={Link} to="/dashboard" type="submit" onClick={(event) => this.handleClick(event)}> 
-                <Button>Submit</Button> 
-              </ListItem>
-              <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
-            </Form>
-          </Container>
-        );
-      }
       this.handleClick = this.handleClick.bind(this);
       this.handlePasswordChange = this.handlePasswordChange.bind(this);
       this.handleUsernameChange = this.handleUsernameChange.bind(this);

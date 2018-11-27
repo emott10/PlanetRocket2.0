@@ -1,3 +1,9 @@
+
+/*
+  LoginScreen: Manages the output for the RegisterBox 
+    the LoginBox. 
+*/
+
 import './dashboard.css';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -6,9 +12,10 @@ import {
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
-import DbHeaderAppBar from '../DashboardAppBar';
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
+import DbHeaderAppBar from './DashboardAppBar';
+import IdeasTable from '../IdeasTable';
 
 const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}
 
@@ -22,7 +29,7 @@ class Dashboard extends Component{
             ideaTitle:'',
             ideaDes:'',
         }
-        this.handleCanvasesClick = this.handleCanvasesClick.bind(this);
+
         this.toggle = this.toggle.bind(this);
         this.handleIdeaNameChange = this.handleIdeaNameChange.bind(this);
         this.handleIdeaDescriptionChange = this.handleIdeaDescriptionChange.bind(this);
@@ -65,20 +72,19 @@ class Dashboard extends Component{
         } );
     }
 
-    handleCanvasesClick(event){
-        alert("canvas");
-    }
 
 render(){
     return(
         <div>
             <DbHeaderAppBar />
-            
+
             <Container style={style}>
                 <Row className="h-100">
                     <Col className="h-100 d-flex align-items-center justify-content-center">
                         <Button onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
-                        <Button onClick = {(event) => this.handleCanvasesClick(event)}> Course </Button>
+                    </Col>
+                    <Col className="h-100 d-flex align-items-center justify-content-center">
+                        <IdeasTable />
                     </Col>
                 </Row>
                 {this.state.pageView}

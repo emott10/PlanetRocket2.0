@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { green } from '@material-ui/core/colors';
-import SplashAppBar from '../SplashAppBar';
+import SplashAppBar from './SplashAppBar';
 
 const greenTheme = createMuiTheme({ palette:{ 
     primary: green }, 
@@ -29,7 +29,7 @@ class Splash extends React.Component{
   }
   
   routeChange(){
-    this.props.history.push("/register");
+    this.props.history.push("/dashboard");
   }
 
   render() {

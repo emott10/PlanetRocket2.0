@@ -84,7 +84,7 @@ render(){
                         <Button onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
                     </Col>
                     <Col className="h-100 d-flex align-items-center justify-content-center">
-                        <IdeasTable />
+                        <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
                     </Col>
                 </Row>
                 {this.state.pageView}

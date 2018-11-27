@@ -170,6 +170,7 @@ exports.getAllIdeas = function(req, res){
                         console.log(err);
                     }
                     else{
+                        console.log(ideas);
 
                         res.send(ideas);
                     }

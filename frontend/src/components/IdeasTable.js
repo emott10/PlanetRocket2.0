@@ -67,7 +67,7 @@ class IdeasTable extends React.Component {
                 <TableRow>
                     <TableCell numeric>Title</TableCell>
                     <TableCell numeric>Description</TableCell>
-                    <TableCell numeric>Course</TableCell>
+                    <TableCell numeric style={{textAlign:'center'}}>Course</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -78,7 +78,8 @@ class IdeasTable extends React.Component {
                         {row.title}
                         </TableCell>
                         <TableCell numeric>{row.initialDescription}</TableCell>
-                        <TableCell numeric> <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}>Take a course to find your target audience!</ListItem></TableCell>
+                        <TableCell numeric style={{right:0}}> 
+                        <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}> <Button>Take a course to find your target audience!</Button></ListItem></TableCell>
                     </TableRow>
                     );
                 })}

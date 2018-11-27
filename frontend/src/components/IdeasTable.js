@@ -35,50 +35,49 @@ const rows = [
   createData('Balls for Kids', 'Lets collect as many sports balls we can and pass them out to the less fortunate youth arpund Humboldt County'),
 ];
 
-function IdeasTable(props) {
-  const { classes } = props;
+class IdeasTable extends React.Component {
 
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell numeric>Title</TableCell>
-            <TableCell numeric>Description</TableCell>
-            <TableCell numeric>Course</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => {
-            return (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
-                  {row.title}
-                </TableCell>
-                <TableCell numeric>{row.desc}</TableCell>
-                <TableCell numeric> <Button> Course </Button></TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-      <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          backIconButtonProps={{
-            'aria-label': 'Previous Page',
-          }}
-          nextIconButtonProps={{
-            'aria-label': 'Next Page',
-          }}
-        />
-    </Paper>
-  );
+render(){
+    return (
+        <div>
+        <Paper className={this.props.root}>
+        <Table className={this.props.table}>
+            <TableHead>
+            <TableRow>
+                <TableCell numeric>Title</TableCell>
+                <TableCell numeric>Description</TableCell>
+                <TableCell numeric>Course</TableCell>
+            </TableRow>
+            </TableHead>
+            <TableBody>
+            {rows.map(row => {
+                return (
+                <TableRow key={row.id}>
+                    <TableCell component="th" scope="row">
+                    {row.title}
+                    </TableCell>
+                    <TableCell numeric>{row.desc}</TableCell>
+                    <TableCell numeric> <Button> Course </Button></TableCell>
+                </TableRow>
+                );
+            })}
+            </TableBody>
+        </Table>
+        <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={rows.length}
+            backIconButtonProps={{
+                'aria-label': 'Previous Page',
+            }}
+            nextIconButtonProps={{
+                'aria-label': 'Next Page',
+            }}
+            />
+        </Paper>
+        </div>
+    );
+    }
 }
-
-IdeasTable.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(IdeasTable);

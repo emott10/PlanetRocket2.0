@@ -49,11 +49,11 @@ class RegisterBox extends Component{
           <Alert color="danger" isOpen={this.state.usernameTaken} toggle={this.onDismiss}>
             Username is not unique
           </Alert>
-            <h2>Register here</h2>
+            <h2 style={{color:'white'}}>Register here</h2>
             <Form className="form">
               <Col>
                 <FormGroup>
-                  <Label>Username</Label>
+                  <Label style={{color:'white'}}>Username</Label>
                   <Input
                     type="text"
                     id="username"
@@ -65,7 +65,7 @@ class RegisterBox extends Component{
               </Col>
               <Col>
                 <FormGroup>
-                  <Label for="Password">Password</Label>
+                  <Label for="Password" style={{color:'white'}}>Password</Label>
                   <Input
                     type="password"
                     name="password"
@@ -77,9 +77,9 @@ class RegisterBox extends Component{
                 </FormGroup>
               </Col>
 
-              <Button onClick = { this.handleClick}>Submit</Button>
+              <Button color='success' onClick = { this.handleClick}>Submit</Button>
 
-              <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
+              <ListItem button component={Link} to="/login" style={{color:'white'}}> Already a member? Click here to Login! </ListItem>
             </Form>
           </Container>
         );

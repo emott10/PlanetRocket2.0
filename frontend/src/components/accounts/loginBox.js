@@ -112,11 +112,11 @@ class LoginBox extends Component{
       <Alert color="danger" isOpen={this.state.incorrectLogin} toggle={this.onDismiss}>
         Incorrect username or password
       </Alert>
-        <h2>Login here</h2>
+        <h2 style={{color:'white'}}>Login here</h2>
         <Form className="form">
           <Col>
             <FormGroup>
-              <Label>Username</Label>
+              <Label style={{color:'white'}}>Username</Label>
               <Input
                 type="text"
                 id="username"
@@ -128,7 +128,7 @@ class LoginBox extends Component{
           </Col>
           <Col>
             <FormGroup>
-              <Label for="Password">Password</Label>
+              <Label for="Password" style={{color:'white'}}>Password</Label>
               <Input
                 type="password"
                 name="password"
@@ -139,8 +139,8 @@ class LoginBox extends Component{
               />
             </FormGroup>
           </Col>
-          <Button onClick = {this.handleClick}> Submit </Button>         
-          <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
+          <Button onClick = {this.handleClick} color='success'> Submit </Button>         
+          <ListItem button component={Link} to="/register" style={{color:'white'}}> Not a member yet? Click here to register! </ListItem>
         </Form>
       </Container>
       );

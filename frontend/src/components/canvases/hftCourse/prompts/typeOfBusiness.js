@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Card, CardBody, CardText, CardTitle, CardHeader, Container, Row, Col, Button
 } from 'reactstrap';
-import promptText from './promptText';
 import TargetResource from './targetResource';
 import CustomerResource from './customerResource';
 
@@ -63,36 +60,43 @@ class TypeOfBusiness extends Component{
 
     //details needs to change per thing.
     render() {
-        var btnStyle = {
-            position: 'relative', 
-            top:200, 
+        var forProfit = {
+             marginLeft: '5em',
+             marginRight: '1em'
         }
-        var h2Style ={
-            background: '#4286f4',
-            color: '#ffffff',
-            width: 1106,
-            border: '1px solid blue',
+        var nonProfit = {
+            marginRight: '1em'
+       }
+        var cardStyle ={
+           width: '100%'
         }
         var conStyle={
-            border: '2px solid #000000',
-            height: 450,
+            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'
         }
         return (
-          <Container className="typeOfBusiness" style={conStyle}>      
-            <Row className="box" style={h2Style}>
-                <h2> Let's develop my idea into a </h2>
-            </Row> 
-            <Form>
-                <FormGroup>
-                    <Row> <input type="radio" name="business-type" id="non-profit" value="non-profit" onChange = {this.handleInputChange.bind(this)}/> 
-                        Non-profit
-                    </Row>
-                    <Row> <input type="radio" name="business-type" id="for-profit" value="for-profit" onChange = {this.handleInputChange.bind(this)}/> 
-                        For-profit
-                    </Row>
-                </FormGroup>
-            <Button style={btnStyle} onClick = {(event) => this.submitButton(event)}> Continue </Button>
-            </Form>
+          <Container style={conStyle} sm={{ size: 12}}>      
+            <Card style={cardStyle}>
+                <CardHeader tag="h3">
+                    Develop your idea! 
+                </CardHeader>
+                <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>  
+                    <CardTitle>
+                        Is your idea for a Non-Profit or For-Profit company?
+                    </CardTitle>
+                    <CardText>
+                        <Row sm={{ size: 12}} className="justify-content-center align-items-center">
+                            <input style={nonProfit} type="radio" name="business-type" id="non-profit" value="non-profit" 
+                                onChange = {this.handleInputChange.bind(this)}/> 
+                            Non-profit
+
+                            <input style={forProfit} type="radio" name="business-type" id="for-profit" value="for-profit" 
+                                onChange = {this.handleInputChange.bind(this)}/> 
+                            For-profit
+                        </Row>
+                    </CardText>
+                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Continue </Button>
+                </CardBody>
+            </Card>
           </Container>
         );
       }

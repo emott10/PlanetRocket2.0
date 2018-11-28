@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Container, Button, Row, Input 
 } from 'reactstrap';
 import promptText from '../../../../config/promptText';
 import KeyResources from './keyResources';

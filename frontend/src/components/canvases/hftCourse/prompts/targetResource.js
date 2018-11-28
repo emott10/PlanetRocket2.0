@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Container, Button, Card, CardText, CardTitle, CardHeader, CardBody
 } from 'reactstrap';
-import promptText from './promptText';
-import Dashboard from '../../../dashboard/dashboard';
 import Customers from './customers';
-import ListItem from '@material-ui/core/ListItem';
-import { Link } from "react-router-dom";
-import Target from './target';
 
 class TargetResource extends Component{
     constructor(props){
@@ -27,42 +20,40 @@ class TargetResource extends Component{
             this.setState({customers: event.target.value});
         }
     };
- 
+
     submitButton = () => {
         this.props.changeSegment(<Customers changeSegment={this.props.changeSegment.bind(this)} />)        
     }
 
+    openResource = () => {
+        window.open('https://en.wikipedia.org/wiki/Key_demographic', '_blank');
+      }
+
     //details needs to change per thing.
     render() {
-        var h2Style ={
-            background: '#4286f4',
-            color: '#ffffff',
-            width: 1106,
-            border: '1px solid blue',
+        var cardStyle ={
+            width: '100%'
         }
+
         var conStyle={
-            border: '2px solid #000000',
-            height: 450,
+            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'
         }
         return (
           <Container className="typeOfBusiness" style={conStyle}>      
-            <Row className="box" style={h2Style}>
-                <h2> Target Audience </h2>
-            </Row> 
-            <Form>
-                <FormGroup>
-                    <Row> 
-                        Before you decide what your target audience would be, here are some Resources
-                        that we suggest you extensively review. 
-                    </Row>
-                    <Row>
-                        <a href='https://en.wikipedia.org/wiki/Key_demographic'> Target Demographic Resource </a>
-                    </Row>
-                </FormGroup>
-            <ListItem button onClick={this.submitButton.bind(this)}> 
-                <Button>Continue</Button> 
-            </ListItem>            
-            </Form>
+            <Card style={cardStyle}>
+                <CardHeader tag="h3">
+                    Target Audience
+                </CardHeader>
+                <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>  
+                    <CardTitle>
+                        Before you decide what your target audience would be, please take a moment and review this resource!
+                    </CardTitle>
+                    <CardText>
+                        <Button color="primary" onClick={this.openResource}> Target Demographic Resource </Button>                        
+                    </CardText>
+                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Continue </Button>
+                </CardBody>
+            </Card>
           </Container>
         );
       }

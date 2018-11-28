@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Container 
 } from 'reactstrap';
 import CustomerSegment from './prompts/customerSegments';
 

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Container, Button, Card, CardBody, CardHeader, CardText, Input 
 } from 'reactstrap';
-import promptText from './promptText';
 import Dashboard from '../../../dashboard/dashboard';
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from "react-router-dom";
@@ -54,36 +51,26 @@ class Customers extends Component{
 
     //details needs to change per thing.
     render() {
-        var btnStyle = {
-            position: 'relative', 
-            top:200, 
+        var conStyle = {
+            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'
         }
-        var h2Style ={
-            background: '#4286f4',
-            color: '#ffffff',
-            width: 1106,
-            border: '1px solid blue',
-        }
-        var conStyle={
-            border: '2px solid #000000',
-            height: 450,
-        }
+
+        var cardStyle ={
+            width: '100%'
+         }
         return (
-          <Container className="typeOfBusiness" style={conStyle}>      
-            <Row className="box" style={h2Style}>
-                <h2> Key Partners </h2>
-            </Row> 
-            <Form>
-                <FormGroup>
-                    <Row> 
-                        Who are you targeting?
-                        <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
-                    </Row>
-                </FormGroup>
-            <ListItem button component={Link} to="/dashboard" type="submit"> 
-                <Button>Submit Course</Button> 
-            </ListItem>            
-            </Form>
+          <Container style={conStyle}>      
+            <Card style={cardStyle}>
+                <CardHeader tag="h3">
+                    Who are you targeting?
+                </CardHeader>
+                <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>      
+                    <CardText>Please indicate who your target demographic is:  </CardText>
+                    <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
+                    <br />
+                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Finish Course </Button>
+                </CardBody>
+            </Card>
           </Container>
         );
       }

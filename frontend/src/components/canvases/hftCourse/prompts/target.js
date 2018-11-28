@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
-} from 'reactstrap';
-import promptText from './promptText';
+    Container, Button, Row,
+    Form, FormGroup, Input } from 'reactstrap';
 import Dashboard from '../../../dashboard/dashboard';
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from "react-router-dom";

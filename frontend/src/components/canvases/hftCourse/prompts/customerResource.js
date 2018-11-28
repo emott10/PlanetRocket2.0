@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Container, Button, Row,
+    Form, FormGroup
 } from 'reactstrap';
-import promptText from './promptText';
-import Dashboard from '../../../dashboard/dashboard';
 import Customers from './customers';
 import ListItem from '@material-ui/core/ListItem';
-import { Link } from "react-router-dom";
 
 class CustomersResource extends Component{
     constructor(props){

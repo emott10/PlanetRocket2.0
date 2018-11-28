@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Col, Row, Modal, 
-    ModalHeader, ModalBody, ModalFooter, 
-    Form, FormGroup, Label, Input 
+    Card, CardBody, CardText, CardHeader, Container, Button
 } from 'reactstrap';
-import promptText from './promptText';
 import TypeOfBusiness from './typeOfBusiness';
 
 
@@ -49,32 +46,30 @@ class Welcome extends Component{
 
     //details needs to change per thing.
     render() {
-        var btnStyle = {
-            position: 'relative', 
-            top:200, 
+        var conStyle = {
+            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'
         }
-        var h2Style ={
-            background: '#4286f4',
-            color: '#ffffff',
-            width: 1106,
-            border: '1px solid blue',
-        }
-        var conStyle={
-            border: '2px solid #000000',
-            height: 450,
-        }
+
+        var cardStyle ={
+            width: '100%'
+         }
+
         return (
-          <Container className="courseInfo" style={conStyle}>      
-            <Row className="box" style={h2Style}>
-                <h2>Welcome!</h2>
-            </Row> 
-            <Form>
-				<h3> In this course you will develop your idea into a for-profit or non-profit and identify who you are targeting. </h3>
-            <Button style={btnStyle} onClick = {(event) => this.submitButton(event)}> Continue </Button>
-            </Form>
+        <Container style={conStyle}>
+            <Card style={cardStyle}>
+                <CardHeader tag="h3">
+                    Welcome!
+                </CardHeader>
+                <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>      
+                    
+                    <CardText>In this course you will develop your idea into a for-profit or non-profit and identify who you are targeting. </CardText>
+                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Continue </Button>
+                </CardBody>
+            </Card>
           </Container>
         );
       }
 }
 
 export default Welcome;
+

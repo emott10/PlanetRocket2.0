@@ -35,7 +35,8 @@ class Dashboard extends Component{
             modal: false,
             ideaTitle:'',
             ideaDes:'',
-            score: 0
+            score: 0,
+            ideas: []
         }
 
         this.toggle = this.toggle.bind(this);

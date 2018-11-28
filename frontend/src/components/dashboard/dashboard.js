@@ -19,8 +19,6 @@ import {
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
-import { ListItem } from '@material-ui/core';
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import DbHeaderAppBar from './DashboardAppBar';
@@ -34,7 +32,6 @@ class Dashboard extends Component{
         this.state={
             isLogin:true,         
             pageView:[],
-            ideas:[],
             modal: false,
             ideaTitle:'',
             ideaDes:'',
@@ -76,32 +73,11 @@ class Dashboard extends Component{
         }
 
         axios.post(createIdeaUrl, payload).then((response) => {
-            
-            var newAr = self.state.ideas.slice();
-            newAr.push(response.data.idea);
-            self.setState({
-                ideas: newAr
-            });
+            console.log(response.data);
 
             self.toggle();
         } );
     }
-
-
-    componentDidMount(){
-
-        var self = this;
-        var getIdeasUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/userIdeas/' + this.props.user;
-
-        axios.get(getIdeasUrl).then((response) => {
-            
-            self.setState({
-                ideas: response.data
-            });
-
-        });
-    }
-    
 
 
 render(){
@@ -112,7 +88,7 @@ render(){
             <Container >
                 <Row style={style}>
                     <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
-                        <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>
+                        <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
                         </Col>

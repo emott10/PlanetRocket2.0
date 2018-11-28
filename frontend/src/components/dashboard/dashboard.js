@@ -45,9 +45,11 @@ class Dashboard extends Component{
         this.handleIdeaNameChange = this.handleIdeaNameChange.bind(this);
         this.handleIdeaDescriptionChange = this.handleIdeaDescriptionChange.bind(this);
         this.createIdea = this.createIdea.bind(this);
+        this.boostScore = this.boostScore.bind(this);
     }
     
     toggle() {
+      this.boostScore();
       this.setState({
         modal: !this.state.modal
       });
@@ -108,6 +110,16 @@ class Dashboard extends Component{
                 score: response.data.score
             });
         })
+    }
+
+    boostScore(){
+        var self = this;
+        var updateScoreUrl = ipAddress + ':3001/api/users/' + this.props.userKey + '/user/' + this.props.user + '/incrementScore';
+        console.log(updateScoreUrl);
+        axios.put(updateScoreUrl).then((response) => {
+            self.state.score++;
+            console.log(response);
+        });
     }
     
 

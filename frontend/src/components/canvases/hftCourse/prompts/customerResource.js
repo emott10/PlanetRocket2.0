@@ -22,7 +22,7 @@ class CustomersResource extends Component{
     };
  
     submitButton = () => {
-        this.props.changeSegment(<Customers changeSegment={this.props.changeSegment.bind(this)} />)        
+        this.props.changeSegment(<Customers changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)        
     }
 
     openResource = () => {

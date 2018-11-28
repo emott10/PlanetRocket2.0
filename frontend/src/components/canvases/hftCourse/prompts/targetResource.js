@@ -22,7 +22,7 @@ class TargetResource extends Component{
     };
 
     submitButton = () => {
-        this.props.changeSegment(<Target changeSegment={this.props.changeSegment.bind(this)} />)        
+        this.props.changeSegment(<Target changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)        
     }
 
     openResource = () => {

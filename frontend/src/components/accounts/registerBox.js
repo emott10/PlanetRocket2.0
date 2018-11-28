@@ -77,9 +77,7 @@ class RegisterBox extends Component{
                 </FormGroup>
               </Col>
 
-              <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.handleClick(event)}>
-                <Button>Submit</Button>
-              </ListItem>
+              <Button onClick = { this.handleClick}>Submit</Button>
 
               <ListItem button component={Link} to="/login"> Already a member? Click here to Login! </ListItem>
             </Form>
@@ -148,7 +146,17 @@ Levi: example of multiple axios .then calls
         axios.post(backendURL, payload).then(function(response) {
           console.log(response.data);
           if(response.data.userCreated){
-            self.props.history.push('/login');
+            axios.post(loginURL, payload).then(function(response) {
+     
+              //REMOVE THIS LINE AFTER TESTING
+              console.log(response.data.yourKey);
+
+              //set the app state APIHKey value to our received apiKey
+              self.props.newKey(response.data.yourKey, self.state.username, response.data.score);  
+              self.props.checkLogin(response.data.loginSuccess);
+              self.props.history.push('/dashboard');
+            });
+              
           }
           else{
             self.setState({

@@ -24,7 +24,7 @@ exports.verifyKey = function(key, userName, resolve, reject){
     //find the User and get it's object ID
     User.findOne({username: userName}, (err, foundUser) =>{
         if(err){
-            console.log(err);
+            console.log('eerrror finding user');
             reject(err);
         }
         else if(foundUser == null){
@@ -37,7 +37,7 @@ exports.verifyKey = function(key, userName, resolve, reject){
             var userID = foundUser._id;
             Key.findOne({ownedBy: ObjectId(userID)}, function(err, ownedKey){
                 if(err){
-                    console.log(err);
+                    console.log('error fidning key');
                     reject(err);
                 }
                 

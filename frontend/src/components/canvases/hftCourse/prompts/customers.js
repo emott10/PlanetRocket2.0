@@ -18,7 +18,6 @@ class Customers extends Component{
         }
        
     }
-
     /*
     setInput = (text, name) => {
         return (
@@ -46,13 +45,7 @@ class Customers extends Component{
     };
  
     submitButton = () => {
-
         this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>);
-        
-        var updateScoreUrl = ipAddress + ':3001/api/users/' + this.props.apiKey + '/user/' + this.props.user + '/incrementScore';
-        axios.put(updateScoreUrl).then((response) => {
-            console.log(response);
-        } );
 
     }
 

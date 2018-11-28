@@ -18,6 +18,8 @@ router.post('/key', keyFunctions.issue_key);
 
 router.put('/users/:apiKey/user/:userID/incrementScore', userFunctions.updateScore);
 
+router.get('/users/:apiKey/user/:userID/score', userFunctions.getScore);
+
 
 //idea routes
 router.post('/idea/:apiKey/user/:userID/newIdea', ideaFunctions.createIdea);

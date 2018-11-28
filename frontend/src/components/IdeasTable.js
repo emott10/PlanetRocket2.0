@@ -43,10 +43,6 @@ class IdeasTable extends React.Component {
     
 
     render(){
-      var btnStyle = {
-            backgroundColor: 'black',
-            color: 'white',
-        };
         return (
             <div>
             <Paper className={this.props.root}>

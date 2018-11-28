@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Card, CardBody, CardHeader, CardText, Input
+    Container, Button, Card, CardBody, CardHeader, CardText, Input, Form
 } from 'reactstrap';
+import ListItem from '@material-ui/core/ListItem';
+import { Link } from "react-router-dom";
 import Dashboard from '../../../dashboard/dashboard';
 
 class Target extends Component{
@@ -44,7 +46,7 @@ class Target extends Component{
     };
  
     submitButton = () => {
-        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} />)        
+        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)        
     }
 
     //details needs to change per thing.
@@ -64,9 +66,13 @@ class Target extends Component{
                 </CardHeader>
                 <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>      
                     <CardText>Please indicate who your target demographic is:  </CardText>
+                    <Form>
                     <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
                     <br />
-                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Finish Course </Button>
+                    <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.submitButton(event)}>
+                        <Button>Finish Course</Button>
+                    </ListItem>
+                    </Form>       
                 </CardBody>
             </Card>
           </Container>

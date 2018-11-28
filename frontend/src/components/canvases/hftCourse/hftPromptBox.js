@@ -24,7 +24,7 @@ class HFTPromptBox extends Component{
         if(this.state.promptSegment == '')
         {
         	this.setState({promptSegment: 'Welcome'});
-        	this.setState({promptView: <Welcome changeSegment={this.changeSegment.bind(this)}/>});
+        	this.setState({promptView: <Welcome changeSegment={this.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>});
       //      this.setState({promptSegment: 'TypeOfBusiness'});
       //      this.setState({promptView: <TypeOfBusiness changeSegment={this.changeSegment.bind(this)}/>});
         }

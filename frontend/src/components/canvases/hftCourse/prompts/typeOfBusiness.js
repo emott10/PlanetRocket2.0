@@ -51,10 +51,10 @@ class TypeOfBusiness extends Component{
 
     submitButton = () => {
         if(this.state.businessType === "for-profit"){
-            this.props.changeSegment(<CustomerResource changeSegment={this.props.changeSegment.bind(this)} />)
+            this.props.changeSegment(<CustomerResource changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)
         }
         else if(this.state.businessType === "non-profit"){
-            this.props.changeSegment(<TargetResource changeSegment={this.props.changeSegment.bind(this)} />)
+            this.props.changeSegment(<TargetResource changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)
         }
         else{
             alert("Please chose either Non-Profit or For-Profit");

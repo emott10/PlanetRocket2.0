@@ -44,14 +44,14 @@ class App extends Component {
         />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
                                                               checkLogin={this.checkLogin.bind(this)} />}/>
-        {this.state.loginSuccess && 
+       {this.state.loginSuccess && 
           <Route path="/dashboard" component={() => 
               <Dashboard  userKey={this.state.apiKey} user={this.state.user}
               />} 
           />
-        }        
-        <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
-        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
+         }        
+        <Route path="/canvas/bmccourse" component={() => <PromptBox userKey={this.state.apiKey} user={this.state.user}/>}/>
+        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox userKey={this.state.apiKey} user={this.state.user}/>}/>
         
       </div>	
      </BrowserRouter>	

@@ -41,7 +41,7 @@ class Welcome extends Component{
     */
 
     submitButton = () => {
-            this.props.changeSegment(<TypeOfBusiness changeSegment={this.props.changeSegment.bind(this)} />)  
+            this.props.changeSegment(<TypeOfBusiness changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user} />)  
     }
 
     //details needs to change per thing.

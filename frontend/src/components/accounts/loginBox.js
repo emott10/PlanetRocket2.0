@@ -139,7 +139,9 @@ class LoginBox extends Component{
               />
             </FormGroup>
           </Col>
-          <Button onClick = {this.handleClick}> Submit </Button>
+          <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.handleClick(event)}>
+              <Button>Submit</Button>
+          </ListItem>          
           <ListItem button component={Link} to="/register"> Not a member yet? Click here to register! </ListItem>
         </Form>
       </Container>

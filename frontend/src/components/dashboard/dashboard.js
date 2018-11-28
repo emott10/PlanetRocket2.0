@@ -77,7 +77,13 @@ class Dashboard extends Component{
         }
 
         axios.post(createIdeaUrl, payload).then((response) => {
-            console.log(response.data);
+            
+             
+            var newAr = self.state.ideas.slice();
+            newAr.push(response.data.idea);
+            self.setState({
+                ideas: newAr
+            });
 
             self.toggle();
         } );

@@ -11,10 +11,6 @@ class HFTPromptBox extends Component{
         this.state={
             promptView:[], 
             promptSegment: '',   
-            //okay so this is going to be a bitch. 
-            //1 do I want it to be a bunch of components? or maybe I want to render things based on whats happening?
-            //Okay so I wanty this to be one component. that is going to switch out messages depending on where we are
-            //I need someting to keep track. Some kind of array? 
         }
 
         this.changeSegment = this.changeSegment.bind(this);

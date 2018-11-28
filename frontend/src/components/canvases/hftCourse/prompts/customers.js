@@ -5,6 +5,8 @@ import {
 import { Link } from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 import Dashboard from '../../../dashboard/dashboard';
+import axios from 'axios';
+import ipAddress from '../../../../config/ipAddress';
 
 class Customers extends Component{
     constructor(props){
@@ -18,7 +20,6 @@ class Customers extends Component{
         }
        
     }
-
     /*
     setInput = (text, name) => {
         return (
@@ -46,7 +47,8 @@ class Customers extends Component{
     };
  
     submitButton = () => {
-        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)        
+        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>);
+
     }
 
     //details needs to change per thing.

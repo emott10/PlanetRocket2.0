@@ -12,7 +12,8 @@ var userSchema = new Schema({
 		courseID: { type: Schema.Types.ObjectId, ref:"Course"},
 		courseName: String,
 		progress: Number,
-		ideaForCoures: {type: Schema.Types.ObjectId, ref: "Idea"}}]
+		ideaForCoures: {type: Schema.Types.ObjectId, ref: "Idea"}}],
+	score: Number
 });
 
 var User = mongoose.model('User', userSchema);

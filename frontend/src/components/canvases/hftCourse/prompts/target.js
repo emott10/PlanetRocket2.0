@@ -5,6 +5,8 @@ import {
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from "react-router-dom";
 import Dashboard from '../../../dashboard/dashboard';
+import axios from 'axios';
+import ipAddress from '../../../../config/ipAddress';
 
 class Target extends Component{
     constructor(props){
@@ -46,6 +48,15 @@ class Target extends Component{
     };
  
     submitButton = () => {
+
+        console.log('submitting');
+        
+        var updateScoreUrl = ipAddress + ':3001/api/users/' + this.props.userKey + '/user/' + this.props.user + '/incrementScore';
+        console.log(updateScoreUrl);
+        axios.put(updateScoreUrl).then((response) => {
+            console.log(response);
+        } );
+
         this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>)        
     }
 

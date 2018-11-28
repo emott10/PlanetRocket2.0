@@ -10,9 +10,15 @@ router.get('/', function(req, res, next) {
 	res.send('the base url for our api is here');
 	});
 
+
+//user routes
 router.post('/register', userFunctions.create_user);
 
 router.post('/key', keyFunctions.issue_key);
+
+router.put('/users/:apiKey/user/:userID/incrementScore', userFunctions.updateScore);
+
+router.get('/users/:apiKey/user/:userID/score', userFunctions.getScore);
 
 
 //idea routes
@@ -32,6 +38,8 @@ router.get('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctions.
 router.put('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctions.updateCanvas);
 
 router.delete('/canvas/:apiKey/user/:userID/canvasName/:canvasID', canvasFunctions.deleteCanvas);
+
+
 
 
 module.exports = router;

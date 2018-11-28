@@ -35,6 +35,7 @@ class Dashboard extends Component{
             modal: false,
             ideaTitle:'',
             ideaDes:'',
+            score: 0
         }
 
         this.toggle = this.toggle.bind(this);
@@ -80,6 +81,29 @@ class Dashboard extends Component{
     }
 
 
+    componentDidMount(){
+
+        var self = this;
+        var getIdeasUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/userIdeas/' + this.props.user;
+        var getScoreUrl = ipAddress + ':3001/api/users/' + this.props.userKey + '/user/'+ this.props.user + '/score';
+
+        axios.get(getIdeasUrl).then((response) => {
+            
+            self.setState({
+                ideas: response.data
+            });
+
+        });
+
+        axios.get(getScoreUrl).then((response) => {
+            self.setState({
+                score: response.data.score
+            });
+        })
+    }
+    
+
+
 render(){
     return(
         <div>
@@ -88,7 +112,9 @@ render(){
             <Container >
                 <Row style={style}>
                     <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
-                        <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
+                        <h1> Welcome {this.props.user} </h1>
+                        <p> current score: {this.state.score}</p>
+                        <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
                         </Col>

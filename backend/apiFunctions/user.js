@@ -1,5 +1,8 @@
 var User = require('../models/user');
 var bcrypt = require('bcryptjs');
+var mongoose = require('mongoose');
+var verify = require('./keyVerify/verify');
+var objectId = mongoose.Types.ObjectId;
 
 /**
  * 
@@ -31,7 +34,7 @@ exports.create_user = function(req, res){
                     }
                     else{
                         //once the password hashing is complete, create the new user
-                        User.create({username:postUsername, password:hash}, function(err, user){
+                        User.create({username:postUsername, password:hash, score: 0}, function(err, user){
                             if(err){
                                 console.log(err);
                             }
@@ -54,4 +57,68 @@ exports.create_user = function(req, res){
             
         }
     });
+}
+
+exports.updateScore = (req, res) => {
+
+    console.log('in put request');
+    
+    var userName = req.params.userID;
+    var key = req.params.apiKey;
+
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,userName,resolve,reject);
+    });
+
+    promise.then(
+        
+        function(result){
+
+            User.findByIdAndUpdate({_id: result.userId}, {$inc: {score:1}}, function(err, result){
+                if(err){
+                    res.send(false);
+                }
+                if(result){
+                    res.send(true);
+                }
+            });
+        },
+        function(error) {
+            res.send(error);
+        }
+    );
+}
+
+exports.getScore = (req, res) => {
+
+    
+    
+    var userName = req.params.userID;
+    var key = req.params.apiKey;
+
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,userName,resolve,reject);
+    });
+
+    promise.then(
+        
+        (result) => {
+            console.log('in promise result');
+
+            User.findById({_id: result.userId}, function(err, user){
+                if(err){
+                    console.log(err);
+                    res.send(false);
+                }
+                if(result){
+                    res.send({score: user.score});
+                }
+            });
+        },
+        (error) => {
+            console.log('in promise result: eroor');
+            console.log(error);
+            res.send(error);
+        }
+    );
 }

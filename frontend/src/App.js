@@ -28,6 +28,7 @@ class App extends Component {
       apiKey: null,
       user: null,
       loginSuccess: null,
+      userScore: null
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
     
@@ -68,10 +69,11 @@ class App extends Component {
     );
   }
 
-  saveApiKey(key, username){
+  saveApiKey(key, username, score){
     this.setState({
       apiKey: key,
-      user: username
+      user: username,
+      userScore: score
     
     });
 

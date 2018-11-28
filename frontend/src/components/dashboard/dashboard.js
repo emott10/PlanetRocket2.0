@@ -136,7 +136,7 @@ render(){
                         	<h1 style={{color:'white'}}> Welcome! </h1>
                         	<Col className="justify-contents-center align-items-center" style={{textAlign:'right'}}>
                        			<img style={{width:'4%', height:'4%'}}src={Scores}/>
-                       			{' '}{this.props.userScore}
+                       			{' '}{this.state.score}
                        		</Col>
                        	</Row>
                         <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>

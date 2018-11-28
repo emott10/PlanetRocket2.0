@@ -47,6 +47,12 @@ class Customers extends Component{
     };
  
     submitButton = () => {
+
+        var updateScoreUrl = ipAddress + ':3001/api/users/' + this.props.userKey + '/user/' + this.props.user + '/incrementScore';
+        console.log(updateScoreUrl);
+        axios.put(updateScoreUrl).then((response) => {
+            console.log(response);
+        } );
         this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} userKey={this.props.userKey} user={this.props.user}/>);
 
     }

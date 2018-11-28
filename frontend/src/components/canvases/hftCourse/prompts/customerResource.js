@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { 
-    Container, Button, Row,
-    Form, FormGroup
+    Container, Button, Card, CardText, CardTitle, CardHeader, CardBody
 } from 'reactstrap';
 import Customers from './customers';
-import ListItem from '@material-ui/core/ListItem';
 
 class CustomersResource extends Component{
     constructor(props){
@@ -27,37 +25,35 @@ class CustomersResource extends Component{
         this.props.changeSegment(<Customers changeSegment={this.props.changeSegment.bind(this)} />)        
     }
 
+    openResource = () => {
+        window.open('https://en.wikipedia.org/wiki/Market_segmentation', '_blank');
+      }
+
     //details needs to change per thing.
     render() {
-        var h2Style ={
-            background: '#4286f4',
-            color: '#ffffff',
-            width: 1106,
-            border: '1px solid blue',
+        var cardStyle ={
+            width: '100%'
         }
+
         var conStyle={
-            border: '2px solid #000000',
-            height: 450,
+            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'
         }
         return (
           <Container className="typeOfBusiness" style={conStyle}>      
-            <Row className="box" style={h2Style}>
-                <h2> Customers Resources </h2>
-            </Row> 
-            <Form>
-                <FormGroup>
-                    <Row> 
-                        Before you decide what your customers would be, here are some Resources
-                        that we suggest you extensively review. 
-                    </Row>
-                    <Row>
-                        <a href='https://en.wikipedia.org/wiki/Market_segmentation'> Customer Resource </a>
-                    </Row>
-                </FormGroup>
-            <ListItem button onClick={this.submitButton.bind(this)}> 
-                <Button> Continue </Button> 
-            </ListItem>            
-            </Form>
+            <Card style={cardStyle}>
+                <CardHeader tag="h3">
+                    Customers Resources
+                </CardHeader>
+                <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>  
+                    <CardTitle>
+                        Before you decide what your customers would be, please take a moment and review this resource!
+                    </CardTitle>
+                    <CardText>
+                        <Button color="primary" onClick={this.openResource}> Customer Resource </Button>                        
+                    </CardText>
+                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Continue </Button>
+                </CardBody>
+            </Card>
           </Container>
         );
       }

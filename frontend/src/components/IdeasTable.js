@@ -73,6 +73,16 @@ class IdeasTable extends React.Component {
                 })}
                 </TableBody>
             </Table>
+
+            </Paper>
+            </div>
+        );
+    }
+}
+
+export default withStyles(styles)(IdeasTable);
+
+/*
             <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
@@ -83,11 +93,4 @@ class IdeasTable extends React.Component {
                 nextIconButtonProps={{
                     'aria-label': 'Next Page',
                 }}
-                />
-            </Paper>
-            </div>
-        );
-    }
-}
-
-export default withStyles(styles)(IdeasTable);
+                />*/

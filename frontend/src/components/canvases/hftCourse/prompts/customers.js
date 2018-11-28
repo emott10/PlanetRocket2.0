@@ -3,8 +3,6 @@ import {
     Container, Button, Card, CardBody, CardHeader, CardText, Input 
 } from 'reactstrap';
 import Dashboard from '../../../dashboard/dashboard';
-import ListItem from '@material-ui/core/ListItem';
-import { Link } from "react-router-dom";
 
 class Customers extends Component{
     constructor(props){
@@ -62,10 +60,10 @@ class Customers extends Component{
           <Container style={conStyle}>      
             <Card style={cardStyle}>
                 <CardHeader tag="h3">
-                    Who are you targeting?
+                    Who are you customers?
                 </CardHeader>
                 <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>      
-                    <CardText>Please indicate who your target demographic is:  </CardText>
+                    <CardText>Please indicate who your customers are:  </CardText>
                     <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
                     <br />
                     <Button color="success" onClick = {(event) => this.submitButton(event)}> Finish Course </Button>

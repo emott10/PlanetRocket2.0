@@ -34,6 +34,7 @@ class Dashboard extends Component{
         this.state={
             isLogin:true,         
             pageView:[],
+            ideas:[],
             modal: false,
             ideaTitle:'',
             ideaDes:'',
@@ -75,11 +76,32 @@ class Dashboard extends Component{
         }
 
         axios.post(createIdeaUrl, payload).then((response) => {
-            console.log(response.data);
+            
+            var newAr = self.state.ideas.slice();
+            newAr.push(response.data.idea);
+            self.setState({
+                ideas: newAr
+            });
 
             self.toggle();
         } );
     }
+
+
+    componentDidMount(){
+
+        var self = this;
+        var getIdeasUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/userIdeas/' + this.props.user;
+
+        axios.get(getIdeasUrl).then((response) => {
+            
+            self.setState({
+                ideas: response.data
+            });
+
+        });
+    }
+    
 
 
 render(){
@@ -90,7 +112,7 @@ render(){
             <Container >
                 <Row style={style}>
                     <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
-                        <IdeasTable userKey={this.props.userKey} user={this.props.user}/>
+                        <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>
                         </Col>

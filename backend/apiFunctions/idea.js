@@ -88,7 +88,7 @@ exports.createIdea = function(req, res){
                         console.log(err);
                     }
                     else{
-                        res.send('idea created');
+                        res.send({idea: newIdea, message: 'idea created'});
                     }
                 });
                 console.log('promise done');

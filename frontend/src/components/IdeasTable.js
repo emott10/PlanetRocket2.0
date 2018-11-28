@@ -40,19 +40,7 @@ class IdeasTable extends React.Component {
         }
     }
 
-    componentDidMount(){
-
-        var self = this;
-        var getIdeasUrl = ipAddress + ':3001/api/idea/' + this.props.userKey + '/userIdeas/' + this.props.user;
-
-        axios.get(getIdeasUrl).then((response) => {
-            
-            self.setState({
-                rows : response.data
-            });
-
-        });
-    }
+    
 
     render(){
       var btnStyle = {
@@ -71,7 +59,7 @@ class IdeasTable extends React.Component {
                 </TableRow>
                 </TableHead>
                 <TableBody>
-                {this.state.rows.map(row => {
+                {this.props.rows.map(row => {
                     return (
                     <TableRow key={row._id}>
                         <TableCell component="th" scope="row">
@@ -88,7 +76,7 @@ class IdeasTable extends React.Component {
             <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={this.state.rows.length}
+                count={this.props.rows.length}
                 backIconButtonProps={{
                     'aria-label': 'Previous Page',
                 }}

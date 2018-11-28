@@ -47,8 +47,8 @@ class IdeasTable extends React.Component {
             <Table className={this.props.table}>
                 <TableHead>
                 <TableRow>
-                    <TableCell numeric>Title</TableCell>
-                    <TableCell numeric>Description</TableCell>
+                    <TableCell numeric style={{textAlign:'center'}}>Title</TableCell>
+                    <TableCell numeric style={{textAlign:'center'}}>Description</TableCell>
                     <TableCell numeric style={{textAlign:'center'}}>Course</TableCell>
                 </TableRow>
                 </TableHead>
@@ -56,11 +56,11 @@ class IdeasTable extends React.Component {
                 {this.props.rows.map(row => {
                     return (
                     <TableRow key={row._id}>
-                        <TableCell component="th" scope="row">
+                        <TableCell component="th" scope="row" style={{textAlign:'center'}}>
                         {row.title}
                         </TableCell>
-                        <TableCell numeric>{row.initialDescription}</TableCell>
-                        <TableCell numeric style={{right:0}}> 
+                        <TableCell numeric style={{textAlign:'center'}}>{row.initialDescription}</TableCell>
+                        <TableCell numeric style={{textAlign:'right'}}> 
                         <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}> <Button>Take a course to find your target audience!</Button></ListItem></TableCell>
                     </TableRow>
                     );

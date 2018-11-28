@@ -19,8 +19,6 @@ import {
     ModalHeader, ModalBody, ModalFooter, 
     Form, FormGroup, Label, Input 
 } from 'reactstrap';
-import { ListItem } from '@material-ui/core';
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import DbHeaderAppBar from './DashboardAppBar';
@@ -34,7 +32,6 @@ class Dashboard extends Component{
         this.state={
             isLogin:true,         
             pageView:[],
-            ideas:[],
             modal: false,
             ideaTitle:'',
             ideaDes:'',
@@ -79,12 +76,7 @@ class Dashboard extends Component{
         }
 
         axios.post(createIdeaUrl, payload).then((response) => {
-            
-            var newAr = self.state.ideas.slice();
-            newAr.push(response.data.idea);
-            self.setState({
-                ideas: newAr
-            });
+            console.log(response.data);
 
             self.toggle();
         } );

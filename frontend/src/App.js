@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom'	
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'	
 import LoginBox from './components/accounts/loginBox';	
 import RegisterBox from './components/accounts/registerBox';	
 import FullPage from './components/splashScreen/splash';
@@ -38,6 +38,7 @@ class App extends Component {
     return (
       <BrowserRouter>	       
       <div>
+      <Switch>
         <Route exact path="/" component={FullPage} />	
         <Route path="/login" 
           component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
@@ -45,15 +46,20 @@ class App extends Component {
         />	
         <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
                                                               checkLogin={this.checkLogin.bind(this)} />}/>
-       {this.state.loginSuccess && 
-          <Route path="/dashboard" component={() => 
-              <Dashboard  userKey={this.state.apiKey} user={this.state.user} userScore={this.state.userScore}
-              />} 
-          />
-         }        
-        <Route path="/canvas/bmccourse" component={() => <PromptBox userKey={this.state.apiKey} user={this.state.user}/>}/>
-        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox userKey={this.state.apiKey} user={this.state.user}/>}/>
-        
+          <Route exact path="/dashboard" render={() => (
+            this.state.loginSuccess ? (
+              <Dashboard  userKey={this.state.apiKey} user={this.state.user}/>
+            ) : (
+              <Redirect to="/"/>
+            )
+          )}/>
+
+        <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
+        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
+        <Route render={() => (
+          <Redirect to ="/"/>
+        )} />
+      </Switch>
       </div>	
      </BrowserRouter>	
       

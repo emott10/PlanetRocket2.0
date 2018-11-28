@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { 
     Container, Button, Card, CardText, CardTitle, CardHeader, CardBody
 } from 'reactstrap';
-import Customers from './customers';
+import Target from './target';
 
 class TargetResource extends Component{
     constructor(props){
@@ -22,7 +22,7 @@ class TargetResource extends Component{
     };
 
     submitButton = () => {
-        this.props.changeSegment(<Customers changeSegment={this.props.changeSegment.bind(this)} />)        
+        this.props.changeSegment(<Target changeSegment={this.props.changeSegment.bind(this)} />)        
     }
 
     openResource = () => {

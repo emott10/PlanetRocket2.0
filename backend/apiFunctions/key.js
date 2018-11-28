@@ -17,6 +17,7 @@ exports.issue_key = function(req, res){
         }
         else if(result === null){
             console.log('user not found');
+            res.send(jsonResponse);
         }
         else{
             //once the user is found, compare passwords

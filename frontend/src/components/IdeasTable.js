@@ -61,7 +61,7 @@ class IdeasTable extends React.Component {
                         </TableCell>
                         <TableCell numeric style={{textAlign:'center'}}>{row.initialDescription}</TableCell>
                         <TableCell numeric style={{textAlign:'right'}}> 
-                        <ListItem button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}> <Button>Take a course to find your target audience!</Button></ListItem></TableCell>
+                        <ListItem  style={{width:'100%'}} button component={Link} to="/canvas/hftCourse" type="submit" onSubmit = {(event) => this.handleCanvasesClick(event)}> <Button>Take a course to find your target audience!</Button></ListItem></TableCell>
                     </TableRow>
                     );
                 })}

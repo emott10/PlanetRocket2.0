@@ -70,7 +70,7 @@ class Target extends Component{
                     <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
                     <br />
                     <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.submitButton(event)}>
-                        <Button>Finish Course</Button>
+                        <Button color="success">Finish Course</Button>
                     </ListItem>
                     </Form>       
                 </CardBody>

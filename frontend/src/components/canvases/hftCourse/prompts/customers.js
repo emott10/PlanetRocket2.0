@@ -64,9 +64,13 @@ class Customers extends Component{
                 </CardHeader>
                 <CardBody className="text-center" /* className="courseInfo" style={conStyle} */>      
                     <CardText>Please indicate who your customers are:  </CardText>
+                    <Form>
                     <Input type="text" name="customers" id="customers" value={this.state.customers} onChange = {this.handleInputChange.bind(this)}/> 
                     <br />
-                    <Button color="success" onClick = {(event) => this.submitButton(event)}> Finish Course </Button>
+                    <ListItem button component={Link} to="/dashboard" type="submit" onClick = {(event) => this.submitButton(event)}>
+                        <Button color="success">Finish Course</Button>
+                    </ListItem>
+                    </Form>                  
                 </CardBody>
             </Card>
           </Container>

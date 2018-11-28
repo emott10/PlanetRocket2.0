@@ -23,6 +23,7 @@ import axios from 'axios';
 import ipAddress from '../../config/ipAddress';
 import DbHeaderAppBar from './DashboardAppBar';
 import IdeasTable from '../IdeasTable';
+import Scores from './scores.png';
 
 const style = { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}
 
@@ -131,8 +132,13 @@ render(){
             <Container >
                 <Row style={style}>
                     <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
-                        <h1> Welcome {this.props.user} </h1>
-                        <p> current score: {this.state.score}</p>
+                    	<Row className="justify-contents-center align-items-center" style={{color:'white'}}>
+                        	<h1 style={{color:'white'}}> Welcome! </h1>
+                        	<Col className="justify-contents-center align-items-center" style={{textAlign:'right'}}>
+                       			<img style={{width:'4%', height:'4%'}}src={Scores}/>
+                       			{' '}{this.props.userScore}
+                       		</Col>
+                       	</Row>
                         <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>

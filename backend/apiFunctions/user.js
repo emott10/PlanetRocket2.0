@@ -55,3 +55,32 @@ exports.create_user = function(req, res){
         }
     });
 }
+
+exports.updateScore = (req, res) => {
+    
+    var username = req.params.userID;
+    var key = req.params.apiKey;
+
+    let promise = new Promise(function(resolve, reject){
+        verify.verifyKey(key,username,resolve,reject);
+    });
+
+    promise.then(
+        (result) =>{
+            User.findOneAndUpdate({ _id: result.userId}, {$inc: {score: 1}},
+                (err, response) => {
+                    if(err){
+                        
+                        res.send(err);
+                    }
+                    else{
+                        res.send(response);
+                    }
+
+            });
+        },
+        (error) => {
+            res.send(error);
+        }
+    );
+}

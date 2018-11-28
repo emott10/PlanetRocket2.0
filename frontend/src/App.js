@@ -28,6 +28,7 @@ class App extends Component {
       apiKey: null,
       user: null,
       loginSuccess: null,
+      userScore: null
       //currentScreen: <LoginScreen alterKey={this.saveApiKey.bind(this)}/> 
     }
     
@@ -46,7 +47,7 @@ class App extends Component {
                                                               checkLogin={this.checkLogin.bind(this)} />}/>
         {this.state.loginSuccess && 
           <Route path="/dashboard" component={() => 
-              <Dashboard  userKey={this.state.apiKey} user={this.state.user}
+              <Dashboard  userKey={this.state.apiKey} user={this.state.user} userScore={this.state.userScore}
               />} 
           />
         }        
@@ -62,10 +63,11 @@ class App extends Component {
     );
   }
 
-  saveApiKey(key, username){
+  saveApiKey(key, username, score){
     this.setState({
       apiKey: key,
-      user: username
+      user: username,
+      userScore: score
     
     });
 

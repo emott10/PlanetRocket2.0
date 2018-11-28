@@ -87,7 +87,7 @@ exports.issue_key = function(req, res){
                                             console.log(err);
                                         }
                                         else{
-                                            var jsonResponse = {loginSuccess: true, yourKey: newKey}; 
+                                            var jsonResponse = {loginSuccess: true, yourKey: newKey, score: result.score}; 
                                             res.send(jsonResponse);
                                         }
                                     });

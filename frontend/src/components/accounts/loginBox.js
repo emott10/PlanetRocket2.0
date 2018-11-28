@@ -85,7 +85,7 @@ class LoginBox extends Component{
           console.log(response.data.yourKey);
 
           //set the app state APIHKey value to our received apiKey
-          self.props.newKey(response.data.yourKey, self.state.username);  
+          self.props.newKey(response.data.yourKey, self.state.username, response.data.score);  
           self.props.checkLogin(response.data.loginSuccess);
           self.props.history.push('/dashboard');
         }

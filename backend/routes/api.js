@@ -16,7 +16,7 @@ router.post('/register', userFunctions.create_user);
 
 router.post('/key', keyFunctions.issue_key);
 
-router.put('/user/:apiKey/user/:userID/incrementScore', userFunctions.updateScore);
+router.put('/users/:apiKey/user/:userID/incrementScore', userFunctions.updateScore);
 
 
 //idea routes

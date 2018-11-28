@@ -9,8 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
 import { Button } from 'reactstrap';
-import axios from 'axios';
-import ipAddress from '../config/ipAddress';
 import { ListItem } from '@material-ui/core';
 import { Link } from "react-router-dom";
 

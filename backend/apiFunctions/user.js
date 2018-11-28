@@ -31,7 +31,7 @@ exports.create_user = function(req, res){
                     }
                     else{
                         //once the password hashing is complete, create the new user
-                        User.create({username:postUsername, password:hash}, function(err, user){
+                        User.create({username:postUsername, password:hash, score: 0}, function(err, user){
                             if(err){
                                 console.log(err);
                             }

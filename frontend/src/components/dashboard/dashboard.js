@@ -114,10 +114,6 @@ render(){
                     <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
                         <h1> Welcome {this.props.user} </h1>
                         <p> current score: {this.props.userScore}</p>
-                    </Col>
-                </Row>
-                <Row style={style}>
-                    <Col sm = {{size: 12}} md = {{size: 12}} lg = {{size: 12}}>
                         <IdeasTable userKey={this.props.userKey} user={this.props.user} rows={this.state.ideas}/>
                         <Col className="d-flex justify-content-center" style = {{ marginTop: '2em'}}>
                             <Button  onClick = {this.toggle} style={{marginRight: '1em'}}>{this.props.buttonLabel} Add an Idea </Button>

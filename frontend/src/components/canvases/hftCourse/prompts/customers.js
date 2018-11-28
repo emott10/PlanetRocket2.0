@@ -3,6 +3,8 @@ import {
     Container, Button, Card, CardBody, CardHeader, CardText, Input 
 } from 'reactstrap';
 import Dashboard from '../../../dashboard/dashboard';
+import axios from 'axios';
+import ipAddress from '../../../../config/ipAddress';
 
 class Customers extends Component{
     constructor(props){
@@ -44,7 +46,12 @@ class Customers extends Component{
     };
  
     submitButton = () => {
-        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} />)        
+        this.props.changeSegment(<Dashboard changeSegment={this.props.changeSegment.bind(this)} />);
+        
+        var updateScoreUrl = ipAddress + ':3001/api/users/' + this.props.apiKey + '/user/' + this.props.user + '/incrementScore';
+        axios.put(updateScoreUrl).then((response) => {
+            console.log(response);
+        } );
     }
 
     //details needs to change per thing.

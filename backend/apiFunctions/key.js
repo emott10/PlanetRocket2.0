@@ -48,7 +48,7 @@ exports.issue_key = function(req, res){
                                         }
                                         else{
                                             //send the user the apiKey
-                                            jsonResponse = {loginSuccess: true, yourKey: apiKey};
+                                            jsonResponse = {loginSuccess: true, yourKey: apiKey, score: result.score};
                                             res.send(jsonResponse);
                                             
                                         }

@@ -27,6 +27,5 @@ To setup the Production Level environemt on a Linux hosting machine follow the s
 6. From the front end, run *npm run build* This command builds a production level build of your front end and places it in the frontend/build folder.
 7. Move the build folder to /usr/share/nginx/
 8. Nginx out of the box serves will serve from /usr/share/nginx/html folder. Change this by editing the following line of /etc/nginx/nginx.conf from */usr/share/nginx/html* to */usr/share/nginx/build*
-9. You now have nginx serving your frontend as a static server running on your ip address or domain and pm2 running your backend.
-
+9. You now have nginx serving your frontend as a static server running on your ip address or domain and pm2 running your backend. Refer to the [User Manual](userManual.pdf) for usage instructions.
 [1]: https://dev.arlevin.org "Planet Rocket"

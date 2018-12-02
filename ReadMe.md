@@ -19,7 +19,7 @@ To setup the Production Level environemt on a Linux hosting machine follow the s
 
 1. Install and start Nginx, MongoDB (on port 27017), node.js, npm, and pm2. Most of these can be installed using your preferred service (yum, apt-get, pip, brew, etc.).
 2. Clone [the repository](https://github.com/emott10/PlanetRocket2.0) anywhere on your server.
-3. Change the ipAddress listed at frontend/src/config/ipAddress.js to the base domain you are using, for example *const ipAddress = 'https://dev.arlevin.org’;*
+3. Change the ipAddress listed at frontend/src/config/ipAddress.js to the base domain you are using, for example *const ipAddress = '[https://dev.arlevin.org][1]’;*
 4. Run *npm install* from each the backend and frontend folders.
 5. From the backend run the command *pm2 start bin/www-prodo* This command tells the node process manager (pm2) to start the node backend located at bin/www-prodo.
     * Note that the www-prodo starts an HTTPS node backend, this should only be used if you also have an SSL certificate for your frontend running similarly on HTTPS. 
@@ -28,3 +28,5 @@ To setup the Production Level environemt on a Linux hosting machine follow the s
 7. Move the build folder to /usr/share/nginx/
 8. Nginx out of the box serves will serve from /usr/share/nginx/html folder. Change this by editing the following line of /etc/nginx/nginx.conf from */usr/share/nginx/html* to */usr/share/nginx/build*
 9. You now have nginx serving your frontend as a static server running on your ip address or domain and pm2 running your backend.
+
+[1]: https://github.com/emott10/PlanetRocket2.0 "Planet Rocket Repo"

@@ -1,7 +1,7 @@
 # Planet Rocket 
 ## By: Alec Levin, William Doudna, Eric Mott, and Levi Pole
 ### Developed for CS 458 Software Engineering's final project as well as for personal exploration into building react and node web applicatons.
-> > Planet Rocket is a web application that makes use of a MERN stack. MERN incorporates MongoDB, Expresss.js, React.js, and Node.js. The following tutorials allow a user to set up the Planet Rocket site both locally and on a production level Linux server.
+Planet Rocket is a web application that makes use of a MERN stack. MERN incorporates MongoDB, Expresss.js, React.js, and Node.js. The following tutorials allow a user to set up the Planet Rocket site both locally and on a production level Linux server.
 
 ## Local Development Environment Setup
 To setup the local developers environemt follow the steps below. For a more detailed guide, refer to the [Programmer's Manual](programmersManual.pdf).
@@ -29,4 +29,4 @@ To setup the Production Level environemt on a Linux hosting machine follow the s
 8. Nginx out of the box serves will serve from /usr/share/nginx/html folder. Change this by editing the following line of /etc/nginx/nginx.conf from */usr/share/nginx/html* to */usr/share/nginx/build*
 9. You now have nginx serving your frontend as a static server running on your ip address or domain and pm2 running your backend.
 
-[1]: https://github.com/emott10/PlanetRocket2.0 "Planet Rocket Repo"
+[1]: https://dev.arlevin.org "Planet Rocket"

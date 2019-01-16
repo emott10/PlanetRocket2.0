@@ -8,6 +8,7 @@ import LoginScreen from './components/accounts/loginScreen';
 import Dashboard from './components/dashboard/dashboard';
 import PromptBox from './components/canvases/bmcCourse/promptBox';
 import HFTPromptBox from './components/canvases/hftCourse/hftPromptBox';
+import {BrowserView, MobileView} from "react-device-detect";
 
 
 
@@ -36,33 +37,40 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>	       
       <div>
-      <Switch>
-        <Route exact path="/" component={FullPage} />	
-        <Route path="/login" 
-          component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
-                                      checkLogin={this.checkLogin.bind(this)}/>} 
-        />	
-        <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
-                                                              checkLogin={this.checkLogin.bind(this)} />}/>
-          <Route exact path="/dashboard" render={() => (
-            this.state.loginSuccess ? (
-              <Dashboard  userKey={this.state.apiKey} user={this.state.user}/>
-            ) : (
-              <Redirect to="/"/>
-            )
-          )}/>
+      <BrowserView>
+        <BrowserRouter>	       
+        <div>
+        <Switch>
+          <Route exact path="/" component={FullPage} />	
+          <Route path="/login" 
+            component= {() => <LoginBox newKey={this.saveApiKey.bind(this)} 
+                                        checkLogin={this.checkLogin.bind(this)}/>} 
+          />	
+          <Route path="/register" component={() => <RegisterBox newKey={this.saveApiKey.bind(this)}
+                                                                checkLogin={this.checkLogin.bind(this)} />}/>
+            <Route exact path="/dashboard" render={() => (
+              this.state.loginSuccess ? (
+                <Dashboard  userKey={this.state.apiKey} user={this.state.user}/>
+              ) : (
+                <Redirect to="/"/>
+              )
+            )}/>
 
-        <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
-        <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
-        <Route render={() => (
-          <Redirect to ="/"/>
-        )} />
-      </Switch>
-      </div>	
-     </BrowserRouter>	
-      
+          <Route path="/canvas/bmccourse" component={() => <PromptBox />}/>
+          <Route path="/canvas/hftcourse" component={() => <HFTPromptBox />}/>
+          <Route render={() => (
+            <Redirect to ="/"/>
+          )} />
+        </Switch>
+        </div>	
+      </BrowserRouter>
+     </BrowserView>
+     
+     <MobileView style={{color:"white"}}>
+       This site functions exclusively in non-mobile browsers.
+     </MobileView>
+     </div>
    // <div className="App">  	
     //  {this.state.currentScreen} 	
     //</div>

@@ -1,3 +1,3 @@
-const ipAddress = 'https://pr2.arlevin.org';
+const ipAddress = 'http://localhost';
 
 export default ipAddress;
